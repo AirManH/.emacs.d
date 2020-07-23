@@ -68,7 +68,7 @@
 (global-company-mode 1)
 
 ;; Smex
-(require 'Smex)
+(require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
