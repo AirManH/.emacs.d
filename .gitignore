@@ -48,5 +48,6 @@ flycheck_*.el
 /network-security.data
 
 # === My Ignore ===
-/smex-items/
 
+# it's about plugin: smex
+/smex-items
