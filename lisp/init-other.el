@@ -1,6 +1,6 @@
 ;; DISable auto-save
 (setq make-backup-files nil)
-(setq auto-save-default)
+(setq auto-save-default nil)
 ;; if a file is modified outside, auto-reload it.
 (global-auto-revert-mode 1)
 
