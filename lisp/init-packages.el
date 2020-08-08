@@ -6,6 +6,7 @@
 
 ;; Add Packages
 (defvar my/packages '(
+		      markdown-mode
 		      smex
 		      ;; --- Auto-completion ---
 		      company
