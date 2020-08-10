@@ -32,7 +32,6 @@
 (put 'dired-find-alternate-file 'disabled nil)
 ;; delay loading
 (with-eval-after-load 'dired
-    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 ;; }}} Dired Mode
 (provide 'init-other)
-

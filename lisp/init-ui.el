@@ -16,6 +16,7 @@
 ;; === FONT ===
 
 ;; font-size
+;; TODO: it seems not working
 (set-face-attribute 'default nil :height 120)
 
 (provide 'init-ui)

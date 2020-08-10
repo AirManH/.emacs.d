@@ -6,6 +6,7 @@
 
 ;; Add Packages
 (defvar my/packages '(
+		      format-all
 		      markdown-mode
 		      smex
 		      ;; --- Auto-completion ---
@@ -35,7 +36,7 @@
 
 ;; Find Executable Path on OS X
 (when (memq window-system '(mac ns))
-     (exec-path-from-shell-initialize))
+  (exec-path-from-shell-initialize))
 
 (provide 'init-packages)
 
@@ -61,4 +62,3 @@
 (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
