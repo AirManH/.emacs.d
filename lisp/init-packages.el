@@ -12,6 +12,7 @@
 		      lua-mode
 		      markdown-mode
 		      monokai-theme
+		      rainbow-delimiters
 		      smartparens
 		      smex
 		      use-package
@@ -61,6 +62,10 @@
 (use-package monokai-theme
   :config
   (load-theme 'monokai 1))
+
+(use-package rainbow-delimiters
+  :config
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 (use-package smartparens)
 

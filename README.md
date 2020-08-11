@@ -12,6 +12,7 @@ package source: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/me
 - lua-mode
 - markdown-mode
 - monokai-theme
+- rainbow-delimiters
 - smartparens
 - smex
 - use-package
@@ -20,7 +21,7 @@ package source: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/me
 
 - markdown support
 - lua support
-- `[yes | no]` -> `[y | n]`
+- rainbow delimiters
 
 ## Dependencies
 

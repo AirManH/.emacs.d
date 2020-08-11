@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (use-package format-all lua-mode smex hungry-delete company smartparens monokai-theme)))
+    (rainbow-delimiters use-package format-all lua-mode smex hungry-delete company smartparens monokai-theme)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
