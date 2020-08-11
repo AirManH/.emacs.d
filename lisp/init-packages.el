@@ -4,20 +4,17 @@
   (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			   ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 
-;; Add Packages
+;; set default packages, they will be installed automatically
 (defvar my/packages '(
-		      format-all
-		      markdown-mode
-		      smex
-		      ;; --- Auto-completion ---
 		      company
-		      ;; --- Better Editor ---
+		      format-all
 		      hungry-delete
-		      smartparens
-		      ;; --- Major Mode ---
 		      lua-mode
-		      ;; --- Themes ---
+		      markdown-mode
 		      monokai-theme
+		      smartparens
+		      smex
+		      use-package
 		      ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -38,27 +35,43 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+
+;; === PLUGIN CONFIG ===
+
+(use-package company
+  :config
+  (global-company-mode 1))
+
+;; (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+;; (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+;; (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
+(use-package lua-mode
+  :mode ("\\.lua$" . lua-mode)
+  :interpreter ("lua" . lua-mode)
+  :bind ("C-M-l" . 'format-all-buffer))
+
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "pandoc"))
+
+(use-package monokai-theme
+  :config
+  (load-theme 'monokai 1))
+
+(use-package smartparens)
+
+(use-package smex
+  :config
+  (smex-initialize)
+  :bind
+  (("M-x" . 'smex)
+   ("M-x" . 'smex-major-mode-commands)
+   ("C-c C-c M-x" . 'execute-extended-command)))
+
+
+;; === PROVIDE ===
 (provide 'init-packages)
-
-
-;; monokai
-(add-to-list 'my/packages 'monokai-theme)
-(load-theme 'monokai 1)
-
-;; Company
-(global-company-mode 1)
-
-;; Smex
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-;; SmartParens
-(require 'smartparens-config)
-
-;; lua-mode
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))

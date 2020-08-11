@@ -4,25 +4,29 @@ My Emacs configuration files.
 
 ## Enabled plugins
 
-- MELPA
-- format-all
-- markdown-mode
-- smex
+package source: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/melpa/
+
 - company
+- format-all
 - hungry-delete
-- smartparens
 - lua-mode
+- markdown-mode
 - monokai-theme
+- smartparens
+- smex
+- use-package
 
 ## Important features
 
-- disable auto-save and auto-backup
-- enable auto-revert
-- turn off ring bell
-- [yes | no] -> [y | n]
+- markdown support
+- lua support
+- `[yes | no]` -> `[y | n]`
 
 ## Dependencies
 
+### Optional
+
+- `pandoc` as backend of plugin: _markdown-mode_
 - The plugin _format-all_ requires backend formatter, see [this page](https://github.com/lassik/emacs-format-all-the-code#supported-languages) for more information.
 
 ## Keybinds

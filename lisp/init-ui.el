@@ -11,12 +11,11 @@
 (global-hl-line-mode 1)
 
 ;; bar cursur
-(setq cursor-type 'bar)
+(setq-default cursor-type 'bar)
 
-;; === FONT ===
+;; === GUI ===
 
-;; font-size
-;; TODO: it seems not working
-(set-face-attribute 'default nil :height 120)
+;; Disable the Toolbar
+(tool-bar-mode -1)
 
 (provide 'init-ui)
