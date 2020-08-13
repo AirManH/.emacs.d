@@ -27,6 +27,7 @@ Package archive: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/m
 
 Dependencies may not be included here.
 
+- auto-package-update
 - company
 - counsel
 - format-all
@@ -37,7 +38,5 @@ Dependencies may not be included here.
 - monokai-theme
 - rainbow-delimiters
 - smartparens
-- smex
 - smooth-scrolling
 - use-package
-- use-package-ensure
