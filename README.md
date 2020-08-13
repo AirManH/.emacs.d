@@ -1,25 +1,12 @@
-# .emacs.d
+# air-emacs
 
 My Emacs configuration files.
 
-## Enabled plugins
-
-package source: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/melpa/
-
-- company
-- format-all
-- hungry-delete
-- lua-mode
-- markdown-mode
-- monokai-theme
-- rainbow-delimiters
-- smartparens
-- smex
-- use-package
-
 ## Important features
 
+- auto install and update required package
 - markdown support
+  - <kbd>M-x</kbd> + <kbd>my-markdown-preview</kbd> + <kbd>RET</kbd> to open a live preview in default broswer.
 - lua support
 - rainbow delimiters
 
@@ -32,4 +19,25 @@ package source: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/me
 
 ## Keybinds
 
-- <kbd>ctrl</kbd> + <kbd>Alt</kbd> (<kbd>Meta</kbd>) + <kbd>l</kbd> : reformat code
+- <kbd>C-M-l</kbd> : reformat code
+
+## Enabled plugins
+
+Package archive: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/melpa/
+
+Dependencies may not be included here.
+
+- company
+- counsel
+- format-all
+- hungry-delete
+- impatient-mode
+- lua-mode
+- markdown-mode
+- monokai-theme
+- rainbow-delimiters
+- smartparens
+- smex
+- smooth-scrolling
+- use-package
+- use-package-ensure

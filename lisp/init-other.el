@@ -1,3 +1,6 @@
+(provide 'init-other)
+
+
 ;; DISable auto-save
 (setq make-backup-files nil)
 (setq auto-save-default nil)
@@ -22,10 +25,6 @@
 ;; Highlight Matching Parenthesis
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
 
-;; highlight in Org-mode
-(require 'org)
-(setq org-src-fontify-natively t)
-
 ;; {{{ Dired Mode
 ;; By default, Dired-mode use every different buffer for different directory.
 ;; we set below to share one buffer along multiple directories.
@@ -34,4 +33,6 @@
 (with-eval-after-load 'dired
   (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 ;; }}} Dired Mode
-(provide 'init-other)
+
+;; === GUI ===
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control))))

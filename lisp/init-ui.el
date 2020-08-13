@@ -2,6 +2,7 @@
 
 ;; show line numbers
 (global-linum-mode 1)
+
 ;; Separator after line number
 ;; Example:
 ;;    9 │ (globa
@@ -16,6 +17,10 @@
 ;; === GUI ===
 
 ;; Disable the Toolbar
-(tool-bar-mode -1)
+
+;; for better detecting of GUI,
+;; see https://stackoverflow.com/a/5801740
+(if (display-graphic-p)
+    (tool-bar-mode -1))
 
 (provide 'init-ui)

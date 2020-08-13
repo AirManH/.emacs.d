@@ -1,3 +1,8 @@
+;; === PROVIDE ===
+(provide 'init-packages)
+
+;; === DEFAULT PACKAGES ===
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
@@ -6,15 +11,6 @@
 
 ;; set default packages, they will be installed automatically
 (defvar my/packages '(
-		      company
-		      format-all
-		      hungry-delete
-		      lua-mode
-		      markdown-mode
-		      monokai-theme
-		      rainbow-delimiters
-		      smartparens
-		      smex
 		      use-package
 		      ) "Default packages")
 
@@ -39,20 +35,81 @@
 
 ;; === PLUGIN CONFIG ===
 
+;; auto install all package after "use-package"
+;; see ":ensure"
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
+;; auto update installed package
+(use-package auto-package-update
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (auto-package-update-maybe))
+
 (use-package company
   :config
   (global-company-mode 1))
+
+;; counsel contains ivy and swiper
+;; Online Manual: https://oremacs.com/swiper/
+(use-package counsel
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) ")
+  :bind (
+	 ;; Ivy-based interface to standard commands
+	 ("C-s" . 'swiper-isearch)
+	 ("M-x" . 'counsel-M-x)
+	 ("C-x C-f" . 'counsel-find-file)
+	 ("M-y" . 'counsel-yank-pop)
+	 ("<f1> f" . 'counsel-describe-function)
+	 ("<f1> v" . 'counsel-describe-variable)
+	 ("<f1> l" . 'counsel-find-library)
+	 ("<f2> i" . 'counsel-info-lookup-symbol)
+	 ("<f2> u" . 'counsel-unicode-char)
+	 ("<f2> j" . 'counsel-set-variable)
+	 ("C-x b" . 'ivy-switch-buffer)
+	 ("C-c v" . 'ivy-push-view)
+	 ("C-c V" . 'ivy-pop-view)
+	 ;; Ivy-based interface to shell and system tools
+         ("C-c c" . 'counsel-compile)
+	 ("C-c g" . 'counsel-git)
+	 ("C-c j" . 'counsel-git-grep)
+	 ("C-c L" . 'counsel-git-log)
+	 ("C-c k" . 'counsel-rg)
+	 ("C-c m" . 'counsel-linux-app)
+	 ("C-c n" . 'counsel-fzf)
+	 ("C-x l" . 'counsel-locate)
+	 ("C-c J" . 'counsel-file-jump)
+	 ("C-S-o" . 'counsel-rhythmbox)
+	 ("C-c w" . 'counsel-wmctrl)
+	 ;; Ivy-resume and other commands
+	 ("C-c C-r" . 'ivy-resume)
+	 ("C-c b" . 'counsel-bookmark)
+	 ("C-c d" . 'counsel-descbinds)
+	 ("C-c g" . 'counsel-git)
+	 ("C-c o" . 'counsel-outline)
+	 ("C-c t" . 'counsel-load-theme)
+	 ("C-c F" . 'counsel-org-file)
+	 )
+  )
+
+(use-package impatient-mode
+  :commands (impatient-mode))
 
 ;; (autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 ;; (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
 ;; (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 (use-package lua-mode
   :mode ("\\.lua$" . lua-mode)
-  :interpreter ("lua" . lua-mode)
+  :interpreter ("lua" . lua-mode))
+
+(use-package format-all
   :bind ("C-M-l" . 'format-all-buffer))
 
 (use-package markdown-mode
-  :ensure t
   :commands (markdown-mode gfm-mode)
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
@@ -63,20 +120,46 @@
   :config
   (load-theme 'monokai 1))
 
+(use-package org
+  :config
+  (setq org-src-fontify-natively t))
+
 (use-package rainbow-delimiters
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+(use-package simple-httpd
+  :config
+  (setq httpd-port 1242)
+  ;;  (setq httpd-root "/var/www")
+  (setq httpd-host "localhost"))
+
 (use-package smartparens)
 
-(use-package smex
+(use-package smooth-scrolling
   :config
-  (smex-initialize)
-  :bind
-  (("M-x" . 'smex)
-   ("M-x" . 'smex-major-mode-commands)
-   ("C-c C-c M-x" . 'execute-extended-command)))
+  (smooth-scrolling-mode 1))
 
+;; === OTHER ===
 
-;; === PROVIDE ===
-(provide 'init-packages)
+;; markdown live preview
+(defun my-markdown-filter (buffer)
+  (princ
+   (with-temp-buffer
+     (let ((tmp (buffer-name)))
+       (set-buffer buffer)
+       (set-buffer (markdown tmp))
+       (format "<!DOCTYPE html><html><title>Markdown preview</title><link rel=\"stylesheet\" href = \"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css\"/>
+<body><article class=\"markdown-body\" style=\"box-sizing: border-box;min-width: 200px;max-width: 980px;margin: 0 auto;padding: 45px;\">%s</article></body></html>" (buffer-string))))
+   (current-buffer)))
+
+(defun my-markdown-preview ()
+  "Preview markdown."
+  (interactive)
+  (unless (process-status "httpd")
+    (httpd-start))
+  (impatient-mode)
+  (imp-set-user-filter 'my-markdown-filter)
+  (imp-visit-buffer))
+
+;; TODO: auto close simple-httpd
