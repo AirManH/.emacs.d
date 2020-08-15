@@ -114,7 +114,7 @@
   :mode (("README\\.md\\'" . gfm-mode)
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
-  :init (setq markdown-command "pandoc"))
+  :init (setq markdown-command "pandoc --from=markdown_strict"))
 
 (use-package monokai-theme
   :config
@@ -128,38 +128,12 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
-(use-package simple-httpd
-  :config
-  (setq httpd-port 1242)
-  ;;  (setq httpd-root "/var/www")
-  (setq httpd-host "localhost"))
-
 (use-package smartparens)
 
 (use-package smooth-scrolling
   :config
   (smooth-scrolling-mode 1))
 
-;; === OTHER ===
-
-;; markdown live preview
-(defun my-markdown-filter (buffer)
-  (princ
-   (with-temp-buffer
-     (let ((tmp (buffer-name)))
-       (set-buffer buffer)
-       (set-buffer (markdown tmp))
-       (format "<!DOCTYPE html><html><title>Markdown preview</title><link rel=\"stylesheet\" href = \"https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css\"/>
-<body><article class=\"markdown-body\" style=\"box-sizing: border-box;min-width: 200px;max-width: 980px;margin: 0 auto;padding: 45px;\">%s</article></body></html>" (buffer-string))))
-   (current-buffer)))
-
-(defun my-markdown-preview ()
-  "Preview markdown."
-  (interactive)
-  (unless (process-status "httpd")
-    (httpd-start))
-  (impatient-mode)
-  (imp-set-user-filter 'my-markdown-filter)
-  (imp-visit-buffer))
-
-;; TODO: auto close simple-httpd
+(use-package vmd-mode
+  ;;   :bind ("M-m p" . 'vmd-mode)
+  :commands vmd-mode)

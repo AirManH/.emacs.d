@@ -16,7 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (counsel simple-httpd impatient-mode rainbow-delimiters use-package format-all lua-mode hungry-delete company smartparens monokai-theme)))
+    (vmd-mode counsel rainbow-delimiters use-package format-all lua-mode hungry-delete company smartparens monokai-theme)))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
