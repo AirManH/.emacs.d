@@ -35,9 +35,9 @@ Dependencies may not be included here.
 - hungry-delete
 - lua-mode
 - markdown-mode
-- monokai-theme
 - rainbow-delimiters
 - smartparens
 - smooth-scrolling
+- spacemacs-theme
 - use-package
 - vmd-mode

@@ -116,10 +116,6 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "pandoc --from=markdown_strict"))
 
-(use-package monokai-theme
-  :config
-  (load-theme 'monokai 1))
-
 (use-package org
   :config
   (setq org-src-fontify-natively t))
@@ -134,6 +130,23 @@
   :config
   (smooth-scrolling-mode 1))
 
+;; see https://github.com/nashamri/spacemacs-theme/issues/42#issuecomment-236437989
+;; for more info
+(use-package spacemacs-common
+  :ensure spacemacs-theme
+  :config (load-theme 'spacemacs-dark t))
+
 (use-package vmd-mode
   ;;   :bind ("M-m p" . 'vmd-mode)
   :commands vmd-mode)
+
+;; c++
+(use-package cc-mode
+  :commands (c-mode)
+  :mode (("\\.c\\'" . c-mode)
+	 ("\\.cpp\\'" . c-mode)
+	 ("\\.h\\'" . c-mode)
+	 ("\\.hpp\\'" . c-mode))
+  :config
+  (setq c-basic-offset 4)
+  (setq-default c-electric-flag nil))
