@@ -47,9 +47,25 @@
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
 
+
+(use-package anaconda-mode
+  :defer t
+  :init
+  (add-hook 'python-mode-hook 'anaconda-mode)
+  (add-hook 'python-mode-hook 'anaconda-eldoc-mode))
+
 (use-package company
   :config
   (global-company-mode 1))
+
+(use-package company-anaconda
+  :defer t
+  :init
+  (add-hook 'python-mode-hook
+	    (lambda ()
+	      (set (make-local-variable 'company-backends) '((company-anaconda company-dabbrev-code)
+							     company-dabbrev))
+	      )))
 
 ;; counsel contains ivy and swiper
 ;; Online Manual: https://oremacs.com/swiper/

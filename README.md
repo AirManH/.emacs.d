@@ -5,6 +5,7 @@ My Emacs configuration files.
 ## Important features
 
 - auto install and update required package
+- python support
 - markdown support
   - <kbd>M-x</kbd> + <kbd>vmd-mode</kbd> + <kbd>RET</kbd> to open a live preview.
 - lua support
@@ -28,16 +29,35 @@ Package archive: http://elpa.emacs-china.org/gnu/, http://elpa.emacs-china.org/m
 
 Dependencies may not be included here.
 
+### Package Manage
+
 - auto-package-update
-- company
-- counsel
-- format-all
-- hungry-delete
-- lua-mode
+- use-package
+
+### Python
+
+- anaconda-mode
+- company-anaconda
+
+### Markdown
+
 - markdown-mode
+- vmd-mode
+
+### Lua
+
+- lua-mode
+
+### UI
+
 - rainbow-delimiters
 - smartparens
 - smooth-scrolling
 - spacemacs-theme
-- use-package
-- vmd-mode
+
+### Other packages
+
+- company
+- counsel
+- format-all
+- hungry-delete
