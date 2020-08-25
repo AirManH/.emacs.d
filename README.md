@@ -5,9 +5,10 @@ My Emacs configuration files.
 ## Important features
 
 - auto install and update required package
+- org mode live preview (<kbd>M-x</kbd> + <kbd>air-org-preview</kbd> + <kbd>RET</kbd>)
 - python support
 - markdown support
-  - <kbd>M-x</kbd> + <kbd>vmd-mode</kbd> + <kbd>RET</kbd> to open a live preview.
+  - <kbd>M-x</kbd> + <kbd>vmd-mode</kbd> + <kbd>RET</kbd>: live preview.
 - lua support
 - rainbow delimiters
 
@@ -21,7 +22,7 @@ My Emacs configuration files.
 
 ## Keybinds
 
-- <kbd>C-M-l</kbd> : reformat code
+- <kbd>C-M-l</kbd> : reformat code (see _format-all_)
 
 ## Enabled plugins
 
@@ -38,6 +39,11 @@ Dependencies may not be included here.
 
 - anaconda-mode
 - company-anaconda
+
+### Org mode
+
+- impatient-mode
+- simple-httpd
 
 ### Markdown
 

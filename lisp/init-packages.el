@@ -140,6 +140,13 @@
   :config
   (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
+(use-package simple-httpd
+  :commands (httpd-start)
+  :config
+  ;; random port in [6000, 7000)
+  (setq httpd-port (+ (random 1000) 6000))
+  (setq httpd-host "localhost"))
+
 (use-package smartparens)
 
 (use-package smooth-scrolling
@@ -158,7 +165,7 @@
 
 ;; c++
 (use-package cc-mode
-  :commands (c-mode)
+  :commands c-mode
   :mode (("\\.c\\'" . c-mode)
 	 ("\\.cpp\\'" . c-mode)
 	 ("\\.h\\'" . c-mode)
@@ -166,3 +173,22 @@
   :config
   (setq c-basic-offset 4)
   (setq-default c-electric-flag nil))
+
+(defun air-org-imp-filter (buffer)
+  ;; org mode themes
+  (let ((theme_bigblow "#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup")
+	(theme_readtheorg "#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup"))
+    ;;
+    (princ
+     (with-current-buffer buffer
+       (org-export-string-as (format "%s\n\n%s" theme_bigblow (buffer-string)) 'html))
+     (current-buffer)))
+  )
+
+(defun air-org-preview ()
+  (interactive)
+  (unless (process-status "httpd")
+    (httpd-start))
+  (impatient-mode)
+  (imp-set-user-filter 'air-org-imp-filter)
+  (imp-visit-buffer))
