@@ -1,0 +1,74 @@
+* air-emacs
+
+My Emacs configuration files.
+
+** Important features
+
+- auto install and update required package
+- org mode live preview (/M-x + air-org-preview + RET/)
+- python support
+- markdown support
+
+  - /M-x + vmd-mode + RET/: live preview.
+
+- lua support
+- rainbow delimiters
+
+** Dependencies
+
+- package =vmd-mode= requires =vmd=. use =npm install -g vmd= to
+  install.
+
+*** Optional
+
+- The plugin =format-all= requires backend formatter,
+  see [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][this page]] for more information.
+
+** Keybinds
+
+- /C-M-l/ : reformat code (see /format-all/)
+
+** Enabled plugins
+
+Package archive: http://elpa.emacs-china.org/gnu/,
+http://elpa.emacs-china.org/melpa/
+
+Dependencies may not be included here.
+
+*** Package Manage
+
+- auto-package-update
+- use-package
+
+*** Python
+
+- anaconda-mode
+- company-anaconda
+
+*** Org mode
+
+- impatient-mode
+- simple-httpd
+
+*** Markdown
+
+- markdown-mode
+- vmd-mode
+
+*** Lua
+
+- lua-mode
+
+*** UI
+
+- rainbow-delimiters
+- smartparens
+- smooth-scrolling
+- spacemacs-theme
+
+*** Other packages
+
+- company
+- counsel
+- format-all
+- hungry-delete
