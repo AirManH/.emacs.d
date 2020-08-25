@@ -13,18 +13,6 @@
 ;; [yes | no] -> [y | n]
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; hide the init screen
-(setq inhibit-splash-screen 1)
-
-;; if you select some characters,
-;; and then press any character,
-;; the selected characters will be replaced
-;; by new charcater.
-(delete-selection-mode 1)
-
-;; Highlight Matching Parenthesis
-(add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
-
 ;; {{{ Dired Mode
 ;; By default, Dired-mode use every different buffer for different directory.
 ;; we set below to share one buffer along multiple directories.
