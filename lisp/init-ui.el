@@ -18,6 +18,16 @@
 ;; bar cursur
 (setq-default cursor-type 'bar)
 
+;; always show matched parentheses
+(show-paren-mode 1)
+;; when is in surround of a pair, highlight the pair
+;; TODO when cursor is here ->|(something here), the left paren is colored
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
 
 (use-package rainbow-delimiters
   :config
@@ -39,6 +49,6 @@
 
 ;; for better detecting of GUI,
 ;; see https://stackoverflow.com/a/5801740
-(if (display-graphic-p)
-    (tool-bar-mode -1)
-    (scroll-bar-mode -1))
+(when (display-graphic-p)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
