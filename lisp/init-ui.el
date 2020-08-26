@@ -52,3 +52,27 @@
 (when (display-graphic-p)
   (tool-bar-mode -1)
   (scroll-bar-mode -1))
+
+;; {{{ set FONT
+;; https://www.emacswiki.org/emacs/SetFonts
+
+(defun font-candidate (&rest fonts)
+  (loop for font in fonts
+	when (find-font (font-spec :name font))
+	return font))
+
+(set-face-attribute
+ 'default nil
+ :family (font-candidate
+	  "JetBrainsMono Nerd Font Mono"
+	  "JetBrains Mono"
+	  "RobotoMono Nerd Font Mono"
+	  "Roboto Mono"
+	  "Source Code Pro"
+	  "Monospace")
+ :height 125
+ :width 'normal
+ :weight 'normal
+ :slant 'normal)
+
+;; }}} set FONT

@@ -28,6 +28,12 @@ My Emacs configuration files.
 
 - /C-M-l/ : reformat code (see /format-all/)
 
+** Usage
+
+*** customize font
+
+see the =set FONT= section in /lisp/init-ui.el/
+
 ** Enabled plugins
 
 Package archive: http://elpa.emacs-china.org/gnu/,
@@ -72,3 +78,4 @@ Dependencies may not be included here.
 - counsel
 - format-all
 - hungry-delete
+- smex
