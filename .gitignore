@@ -55,3 +55,4 @@ flycheck_*.el
 /recentf
 /bookmarks
 /anaconda-mode
+/transient
