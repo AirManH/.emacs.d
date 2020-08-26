@@ -5,12 +5,11 @@ My Emacs configuration files.
 ** Important features
 
 - auto install and update required package
+- on-the-fly syntax checking (/flycheck/)
 - org mode live preview (/M-x + air-org-preview + RET/)
 - python support
 - markdown support
-
   - /M-x + vmd-mode + RET/: live preview.
-
 - lua support
 - rainbow delimiters
 
@@ -21,12 +20,18 @@ My Emacs configuration files.
 
 *** Optional
 
-- The plugin =format-all= requires backend formatter,
+- The plugin =format-all= requires backend formatters,
   see [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][this page]] for more information.
+- =flycheck= requires external syntax checker programs,
+  see [[https://www.flycheck.org/en/latest/languages.html#flycheck-languages][this page]] for more information.
 
 ** Keybinds
 
-- /C-M-l/ : reformat code (see /format-all/)
+Many keybinds are not mentioned here, please look for the description of corresponding package.
+
+| keybind | description                      |
+|---------+----------------------------------|
+| /C-M-l/ | reformat code (see /format-all/) |
 
 ** Usage
 
@@ -76,6 +81,7 @@ Dependencies may not be included here.
 
 - company
 - counsel
+- flycheck
 - format-all
 - hungry-delete
 - smex

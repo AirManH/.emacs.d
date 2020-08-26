@@ -45,13 +45,15 @@
 
 ;; === GUI ===
 
-(menu-bar-mode -1)
-
 ;; for better detecting of GUI,
 ;; see https://stackoverflow.com/a/5801740
-(when (display-graphic-p)
-  (tool-bar-mode -1)
-  (scroll-bar-mode -1))
+(if (display-graphic-p)
+    ;; then
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1))
+  ;; else
+  (menu-bar-mode -1))
 
 ;; {{{ set FONT
 ;; https://www.emacswiki.org/emacs/SetFonts
