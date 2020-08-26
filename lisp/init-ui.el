@@ -4,9 +4,6 @@
 ;; hide the init screen
 (setq inhibit-splash-screen 1)
 
-;; show line numbers
-(global-linum-mode 1)
-
 ;; Separator after line number
 ;; Example:
 ;;    9 │ (globa
@@ -53,7 +50,8 @@
       (tool-bar-mode -1)
       (scroll-bar-mode -1))
   ;; else
-  (menu-bar-mode -1))
+  (progn
+    (xterm-mouse-mode 1)))
 
 ;; {{{ set FONT
 ;; https://www.emacswiki.org/emacs/SetFonts

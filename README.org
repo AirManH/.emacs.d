@@ -5,6 +5,7 @@ My Emacs configuration files.
 ** Important features
 
 - auto install and update required package
+- file manager on startup (/sr-speedbar/)
 - git support (/magit/)
 - on-the-fly syntax checking (/flycheck/)
 - org mode live preview (/M-x + air-org-preview + RET/)
@@ -90,3 +91,4 @@ Dependencies may not be included here.
 - format-all
 - hungry-delete
 - smex
+- sr-speedbar
