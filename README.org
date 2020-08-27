@@ -72,6 +72,10 @@ Dependencies may not be included here.
 - markdown-mode
 - vmd-mode
 
+*** Emacs Lisp
+
+- lispy
+
 *** Lua
 
 - lua-mode

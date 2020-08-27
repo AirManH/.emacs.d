@@ -9,6 +9,7 @@
 (require 'init-company)
 (require 'init-counsel)
 (require 'init-editing-utils)
+(require 'init-elisp)
 (require 'init-flycheck)
 (require 'init-format-all)
 (require 'init-git)
