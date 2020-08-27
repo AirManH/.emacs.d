@@ -3,6 +3,11 @@
 ;;; Code:
 
 
+;; Separator after line number
+;; Example:
+;;    9│ (globa
+(setq linum-format "%4d\u2502 ")
+
 (global-linum-mode 1)
 
 ;;; <<< DISable linum-mode in some situation

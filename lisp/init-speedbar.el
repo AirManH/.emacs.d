@@ -5,12 +5,12 @@
 
 (use-package sr-speedbar
   :defer t
-  :commands sr-speedbar
-  :init
+  :commands (sr-speedbar-open sr-speedbar-toggle)
+  :config
   (progn
     (setq sr-speedbar-skip-other-window-p t
-	  sr-speedbar-width 20
-	  sr-speedbar-max-width 30
+	  sr-speedbar-width 10
+	  sr-speedbar-max-width 20
 	  sr-speedbar-right-side nil
 	  speedbar-use-images t
 	  speedbar-show-unknown-files t)
@@ -18,9 +18,7 @@
     (make-face 'speedbar-face)
     (set-face-font 'speedbar-face "monospace-11")
     (setq speedbar-mode-hook
-	  '(lambda () (buffer-face-set 'speedbar-face)))
-    (when window-system
-      (sr-speedbar-open))))
+	  '(lambda () (buffer-face-set 'speedbar-face)))))
 
 (provide 'init-speedbar)
 ;;; init-speedbar.el ends here

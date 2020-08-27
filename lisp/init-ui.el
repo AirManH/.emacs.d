@@ -4,11 +4,6 @@
 ;; hide the init screen
 (setq inhibit-splash-screen 1)
 
-;; Separator after line number
-;; Example:
-;;    9 │ (globa
-(setq linum-format "%4d \u2502 ")
-
 ;; highlight current line
 (global-hl-line-mode 1)
 
