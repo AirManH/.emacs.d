@@ -2,8 +2,7 @@
 
 
 (use-package smartparens
-  :defer t
-  :init (add-hook 'prog-mode-hook #'smartparens-mode)
+  :hook (prog-mode . smartparens-mode)
   :config
   (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil))
 

@@ -22,8 +22,7 @@
 	     (funcall fn)))))
 
 (use-package rainbow-delimiters
-  :config
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package smooth-scrolling
   :config
