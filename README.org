@@ -43,8 +43,8 @@ see the =set FONT= section in /lisp/init-ui.el/
 
 ** Enabled plugins
 
-Package archive: http://elpa.emacs-china.org/gnu/,
-http://elpa.emacs-china.org/melpa/
+Package archive: http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/,
+http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
 
 Dependencies may not be included here.
 
