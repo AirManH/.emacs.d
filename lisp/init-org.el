@@ -3,7 +3,8 @@
 
 (use-package org
   :config
-  (setq org-src-fontify-natively t))
+  (setq org-src-fontify-natively t)
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0)))
 
 ;; Live preview
 (defun air-org-imp-filter (buffer)
