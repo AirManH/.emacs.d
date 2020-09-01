@@ -2,14 +2,17 @@
 
 My Emacs configuration files.
 
-** Important features
+** Features
 
 - auto install and update required package
 - file manager on startup (/sr-speedbar/)
+- *c/c++* support (/semantic, srefactor, rtags, irony, cmake-ide, flycheck, company-c-headers/)
+- *python* support
+- *markdown* support
+- *cmake* support
 - git support (/magit/)
 - on-the-fly syntax checking (/flycheck/)
 - org mode live preview (/M-x + air-org-preview + RET/)
-- python support
 - markdown support
   - /M-x + vmd-mode + RET/: live preview.
 - lua support
@@ -19,6 +22,7 @@ My Emacs configuration files.
 
 - package =vmd-mode= requires =vmd=. use =npm install -g vmd= to
   install.
+- package =cmake-ide= requires =rtags=. Install =rtags= by package manager.
 
 *** Optional
 
@@ -52,6 +56,17 @@ Dependencies may not be included here.
 
 - auto-package-update
 - use-package
+
+*** C/C++
+
+- company
+- semantic
+- srefactor
+- rtags
+- irony
+- cmake-ide
+- cmake-mode
+- company-c-headers
 
 *** Python
 

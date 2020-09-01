@@ -56,3 +56,7 @@ flycheck_*.el
 /bookmarks
 /anaconda-mode
 /transient
+/cnfonts
+/emojis
+/semanticdb
+/srecode-map.el
