@@ -47,26 +47,27 @@
   (progn
     (xterm-mouse-mode 1)))
 
-;; {{{ set FONT
-;; https://www.emacswiki.org/emacs/SetFonts
-
-(defun font-candidate (&rest fonts)
-  (loop for font in fonts
-	when (find-font (font-spec :name font))
-	return font))
-
-(set-face-attribute
- 'default nil
- :family (font-candidate
-	  "JetBrainsMono Nerd Font Mono"
-	  "JetBrains Mono"
-	  "RobotoMono Nerd Font Mono"
-	  "Roboto Mono"
-	  "Source Code Pro"
-	  "Monospace")
- :height 125
- :width 'normal
- :weight 'normal
- :slant 'normal)
-
-;; }}} set FONT
+;; use cnfonts to control font
+;; https://github.com/tumashu/cnfonts
+(if (display-graphic-p)
+    (use-package cnfonts
+      :init
+      ;; https://github.com/tumashu/cnfonts#%E4%BD%BF%E7%94%A8-cnfonts-use-system-type
+      (setq cnfonts-use-system-type t)
+      :config
+      (progn
+	(setq cnfonts-personal-fontnames
+	      '(
+		;; english
+		("JetBrainsMono Nerd Font Mono"
+		 "JetBrains Mono"
+		 "RobotoMono Nerd Font Mono"
+		 "Roboto Mono"
+		 "Source Code Pro"
+		 "DejaVu Sans Mono"
+		 "Monospace")
+		;; chinese
+		("文泉驿等宽微米黑")
+		;; ExtB
+		("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB")))
+	(cnfonts-enable))))
