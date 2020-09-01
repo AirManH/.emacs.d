@@ -1,5 +1,13 @@
-(provide 'init-company)
+;;; init-company.el --- company -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
 
 (use-package company
   :config
-  (global-company-mode 1))
+  (progn
+    (global-company-mode 1)))
+
+
+(provide 'init-company)
+;;; init-company ends here
