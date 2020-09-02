@@ -5,6 +5,11 @@
 
 (require 'init-packages)
 
+;; external elisp
+(add-to-list 'load-path "~/.emacs.d/ext-lisp/")
+(require 'init-ext)
+
+
 (require 'init-c)
 (require 'init-company)
 (require 'init-counsel)
@@ -24,7 +29,6 @@
 (require 'init-python)
 (require 'init-speedbar)
 (require 'init-ui)
-
 
 
 (custom-set-variables
