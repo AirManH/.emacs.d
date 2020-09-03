@@ -17,9 +17,9 @@
 (define-advice show-paren-function (:around (fn) fix-show-paren-function)
   "Highlight enclosing parens."
   (cond ((looking-at-p "\\s(") (funcall fn))
-	(t (save-excursion
-	     (ignore-errors (backward-up-list))
-	     (funcall fn)))))
+        (t (save-excursion
+             (ignore-errors (backward-up-list))
+             (funcall fn)))))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -56,18 +56,56 @@
       (setq cnfonts-use-system-type t)
       :config
       (progn
-	(setq cnfonts-personal-fontnames
-	      '(
-		;; english
-		("JetBrainsMono Nerd Font Mono"
-		 "JetBrains Mono"
-		 "RobotoMono Nerd Font Mono"
-		 "Roboto Mono"
-		 "Source Code Pro"
-		 "DejaVu Sans Mono"
-		 "Monospace")
-		;; chinese
-		("文泉驿等宽微米黑")
-		;; ExtB
-		("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB")))
-	(cnfonts-enable))))
+        (setq cnfonts-personal-fontnames
+              '(
+                ;; english
+                ("JetBrainsMono Nerd Font Mono"
+                 "JetBrains Mono"
+                 "RobotoMono Nerd Font Mono"
+                 "Roboto Mono"
+                 "Source Code Pro"
+                 "DejaVu Sans Mono"
+                 "Monospace")
+                ;; chinese
+                ("文泉驿等宽微米黑")
+                ;; ExtB
+                ("HanaMinB" "SimSun-ExtB" "MingLiU-ExtB")))
+        (cnfonts-enable))))
+
+;; show white space
+(use-package whitespace
+  :defer t
+  :init
+  (add-hook 'prog-mode-hook (lambda () (whitespace-mode 1)))
+  :config
+  (progn
+    ;; not visulize newline mark
+    ;; maybe better practice
+    (setq whitespace-style '(face
+                             ;; tabs
+                             tabs
+                             tab-mark
+                             ;; space
+                             space-mark
+                             spaces
+                             ))
+    ;; turn off whitespace-mode when the company's menu popup
+    ;; https://github.com/company-mode/company-mode/pull/245#issuecomment-232943098
+    (defvar my-prev-whitespace-mode nil)
+    (make-variable-buffer-local 'my-prev-whitespace-mode)
+    (defun pre-popup-draw ()
+      "Turn off whitespace mode before showing company complete tooltip"
+      (if whitespace-mode
+          (progn
+            (setq my-prev-whitespace-mode t)
+            (whitespace-mode -1)
+            (setq my-prev-whitespace-mode t))))
+    (defun post-popup-draw ()
+      "Restore previous whitespace mode after showing company tooltip"
+      (if my-prev-whitespace-mode
+          (progn
+            (whitespace-mode 1)
+            (setq my-prev-whitespace-mode nil))))
+    (advice-add 'company-pseudo-tooltip-unhide :before #'pre-popup-draw)
+    (advice-add 'company-pseudo-tooltip-hide :after #'post-popup-draw))
+  )
