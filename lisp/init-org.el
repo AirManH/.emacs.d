@@ -10,11 +10,14 @@
 (defun air-org-imp-filter (buffer)
   ;; org mode themes
   (let ((theme_bigblow "#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-bigblow.setup")
-	(theme_readtheorg "#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup"))
+        (theme_readtheorg "#+SETUPFILE: https://fniessen.github.io/org-html-themes/setup/theme-readtheorg.setup")
+	)
     ;;
     (princ
      (with-current-buffer buffer
-       (org-export-string-as (format "%s\n\n%s" theme_bigblow (buffer-string)) 'html))
+       ;; (org-export-string-as (format "%s\n\n%s" theme_bigblow (buffer-string)) 'html)
+       (org-export-string-as (buffer-string) 'html)
+       )
      (current-buffer)))
   )
 
