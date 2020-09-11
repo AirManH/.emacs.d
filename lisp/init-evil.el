@@ -1,4 +1,4 @@
-;;; init-git.el --- Git support -*- lexical-binding: t -*-
+;;; init-evil.el --- Evil mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
