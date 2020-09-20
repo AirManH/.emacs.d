@@ -1,4 +1,6 @@
-(provide 'init-ui)
+;;; init-ui.el --- configure ui -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 
 ;; hide the init screen
@@ -88,26 +90,9 @@
                              ;; space
                              ;; space-mark
                              ;; spaces
-			     trailing
-			     indentation
-                             ))
-    ;; turn off whitespace-mode when the company's menu popup
-    ;; https://github.com/company-mode/company-mode/pull/245#issuecomment-232943098
-    (defvar my-prev-whitespace-mode nil)
-    (make-variable-buffer-local 'my-prev-whitespace-mode)
-    (defun pre-popup-draw ()
-      "Turn off whitespace mode before showing company complete tooltip"
-      (if whitespace-mode
-          (progn
-            (setq my-prev-whitespace-mode t)
-            (whitespace-mode -1)
-            (setq my-prev-whitespace-mode t))))
-    (defun post-popup-draw ()
-      "Restore previous whitespace mode after showing company tooltip"
-      (if my-prev-whitespace-mode
-          (progn
-            (whitespace-mode 1)
-            (setq my-prev-whitespace-mode nil))))
-    (advice-add 'company-pseudo-tooltip-unhide :before #'pre-popup-draw)
-    (advice-add 'company-pseudo-tooltip-hide :after #'post-popup-draw))
-  )
+                             trailing
+                             indentation))))
+
+
+(provide 'init-ui)
+;;; init-ui.el ends here
