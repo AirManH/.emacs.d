@@ -1,6 +1,3 @@
-;; cl - Common Lisp Extension
-(require 'cl)
-
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'init-packages)
