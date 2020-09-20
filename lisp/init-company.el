@@ -6,7 +6,9 @@
 (use-package company
   :config
   (progn
-    (global-company-mode 1)))
+    (global-company-mode 1)
+    (setq company-idle-delay 0.0
+          company-minimum-prefix-length 1)))
 
 
 (provide 'init-company)
