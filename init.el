@@ -30,6 +30,7 @@
 (require 'init-python)
 (require 'init-speedbar)
 (require 'init-ui)
+(require 'init-which-key)
 
 
 (custom-set-variables
