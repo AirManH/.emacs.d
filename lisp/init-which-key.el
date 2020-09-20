@@ -3,9 +3,9 @@
 ;;; Code:
 
 
-;; (use-package which-key
-;;   :config
-;;   (which-key-mode))
+(use-package which-key
+  :config
+  (which-key-mode))
 
 
 (provide 'init-which-key)
