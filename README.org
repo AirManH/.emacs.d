@@ -5,52 +5,65 @@ My Emacs configuration files.
 ** Features
 
 - auto install and update required package
-- file manager on startup (/sr-speedbar/)
-- *c/c++* support (/semantic, srefactor, rtags, irony, cmake-ide, flycheck, company-c-headers/)
-- *python* support
-- *markdown* support
-- *cmake* support
+- file manager (/sr-speedbar/)
+- c/c++ support with LSP(Language Server Protocol)
+- python support
+- cmake support
 - git support (/magit/)
 - on-the-fly syntax checking (/flycheck/)
-- org mode live preview (/M-x + air-org-preview + RET/)
+- org mode live preview
 - markdown support
-  - /M-x + vmd-mode + RET/: live preview.
 - lua support
 - rainbow delimiters
 
-** Dependencies
-
-- package =vmd-mode= requires =vmd=. use =npm install -g vmd= to
-  install.
-- package =cmake-ide= requires =rtags=. Install =rtags= by package manager.
-
-*** Optional
-
-- The plugin =format-all= requires backend formatters,
-  see [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][this page]] for more information.
-- =flycheck= requires external syntax checker programs,
-  see [[https://www.flycheck.org/en/latest/languages.html#flycheck-languages][this page]] for more information.
-
-** Keybinds
-
-Many keybinds are not mentioned here, please look for the description of corresponding package.
-
-| keybind | description                      |
-|---------+----------------------------------|
-| /C-M-l/ | reformat code (see /format-all/) |
-
 ** Usage
 
-*** customize font
+*** Evil
 
-see the =set FONT= section in /lisp/init-ui.el/
+- =evil-mode= is default enabled globally, see [[https://github.com/emacs-evil/evil][this github page]] and [[./lisp/init-evil.el][init-evil.el]] for more details.
+
+*** Markdown
+
+**** Live Preview
+
+- This feature rely on package =vmd-mode=, which requires =vmd= in /PATH/. Use =npm install -g vmd= to install.
+- Shortkey to enable: /M-x + vmd-mode + RET/
+
+*** C/C++
+
+- C/C++ support completely based on =lsp-mode=. To make =lsp-mode= work, install =clangd= or =ccls= as backend.
+- Use shortkey /C-c l/ to open a popup menu containing other avalible operations.
+- See also [[https://github.com/emacs-lsp/lsp-mode][lsp-mode github page]]
+
+*** Orgmode
+
+**** Live Preview
+
+- Shortkey to enable it: /M-x + air-org-preview + RET/. It will open the live preview in default browser.
+
+*** Code Formatter
+
+- Use shortkey: /C-M-l/ to format current buffer.
+- This feature rely on =format-all=.
+  Not every language is supported, you have to install corresponding backend formatters.
+  See [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][this page]] for more information.
+
+*** On-the-fly syntax checking
+
+- This feature is provided by =flycheck=, which requires external syntax checker programs,
+  see [[https://www.flycheck.org/en/latest/languages.html#flycheck-languages][this page]] for more information.
+
+*** Customize font
+
+- You can use =cnfonts= to customize both English fonts and Chinese fonts.
+- See the =set FONT= section in [[./lisp/init-ui.el][init-ui.el]] and [[https://github.com/tumashu/cnfonts][cnfonts github page]]
 
 ** Enabled plugins
 
 Package archive: http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/,
 http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
 
-Dependencies may not be included here.
+Some dependencies may not be included here.
 
 *** Package Manage
 
@@ -59,14 +72,7 @@ Dependencies may not be included here.
 
 *** C/C++
 
-- company
-- semantic
-- srefactor
-- rtags
-- irony
-- cmake-ide
-- cmake-mode
-- company-c-headers
+- lsp-mode
 
 *** Python
 
@@ -87,10 +93,6 @@ Dependencies may not be included here.
 - markdown-mode
 - vmd-mode
 
-*** Emacs Lisp
-
-- lispy
-
 *** Lua
 
 - lua-mode
@@ -101,13 +103,16 @@ Dependencies may not be included here.
 - smartparens
 - smooth-scrolling
 - spacemacs-theme
+- whitespace
 
 *** Other packages
 
 - company
 - counsel
+- evil-mode
 - flycheck
 - format-all
 - hungry-delete
 - smex
 - sr-speedbar
+- which-key

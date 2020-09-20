@@ -20,6 +20,7 @@
 (require 'init-impatient)
 (require 'init-key)
 (require 'init-linum)
+(require 'init-lsp)
 (require 'init-lua)
 (require 'init-markdown)
 (require 'init-org)

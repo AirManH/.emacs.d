@@ -60,3 +60,4 @@ flycheck_*.el
 /emojis
 /semanticdb
 /srecode-map.el
+/.lsp-session-*
