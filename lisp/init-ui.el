@@ -86,8 +86,10 @@
                              tabs
                              tab-mark
                              ;; space
-                             space-mark
-                             spaces
+                             ;; space-mark
+                             ;; spaces
+			     trailing
+			     indentation
                              ))
     ;; turn off whitespace-mode when the company's menu popup
     ;; https://github.com/company-mode/company-mode/pull/245#issuecomment-232943098
