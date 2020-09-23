@@ -25,6 +25,7 @@
 (require 'init-markdown)
 (require 'init-org)
 (require 'init-other)
+(require 'init-pyim)
 (require 'init-python)
 (require 'init-speedbar)
 (require 'init-ui)
@@ -39,7 +40,7 @@
  '(custom-safe-themes
    '("f3ab34b145c3b2a0f3a570ddff8fabb92dafc7679ac19444c31058ac305275e1" default))
  '(package-selected-packages
-   '(cmake-ide cmake-mode cnfonts srefactor company-c-headers sr-speedbar magit flycheck smex simple-httpd company-anaconda anaconda-mode spacemacs-theme vmd-mode counsel rainbow-delimiters use-package format-all lua-mode hungry-delete company smartparens monokai-theme)))
+   '(pyim cmake-ide cmake-mode cnfonts srefactor company-c-headers sr-speedbar magit flycheck smex simple-httpd company-anaconda anaconda-mode spacemacs-theme vmd-mode counsel rainbow-delimiters use-package format-all lua-mode hungry-delete company smartparens monokai-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -5,12 +5,13 @@ My Emacs configuration files.
 ** Features
 
 - auto install and update required package
-- file manager (/sr-speedbar/)
-- c/c++ support with LSP(Language Server Protocol)
+- file manager (=sr-speedbar=)
+- Chinese input method support (=pyim=)
+- c/c++ support with LSP (/Language Server Protocol/)
 - python support
 - cmake support
-- git support (/magit/)
-- on-the-fly syntax checking (/flycheck/)
+- git support (=magit=)
+- on-the-fly syntax checking (=flycheck=)
 - org mode live preview
 - markdown support
 - lua support
@@ -22,28 +23,33 @@ My Emacs configuration files.
 
 - =evil-mode= is default enabled globally, see [[https://github.com/emacs-evil/evil][this github page]] and [[./lisp/init-evil.el][init-evil.el]] for more details.
 
+*** Chinese input method
+
+- =pyim= is used as Chinese input method. Use =C-\= to activate or deactivate the input method.
+- By default I use /xiaohe-shuangpin/, which may not suit you. Please see [[./lisp/init-pyim.el][init-pyim.el]] and [[https://github.com/tumashu/pyim][pyim github page]] for more details.
+
 *** Markdown
 
 **** Live Preview
 
 - This feature rely on package =vmd-mode=, which requires =vmd= in /PATH/. Use =npm install -g vmd= to install.
-- Shortkey to enable: /M-x + vmd-mode + RET/
+- Shortkey to enable: =M-x + vmd-mode + RET=
 
 *** C/C++
 
 - C/C++ support completely based on =lsp-mode=. To make =lsp-mode= work, install =clangd= or =ccls= as backend.
-- Use shortkey /C-c l/ to open a popup menu containing other avalible operations.
+- Use shortkey =C-c l= to open a popup menu containing other avalible operations.
 - See also [[https://github.com/emacs-lsp/lsp-mode][lsp-mode github page]]
 
 *** Orgmode
 
 **** Live Preview
 
-- Shortkey to enable it: /M-x + air-org-preview + RET/. It will open the live preview in default browser.
+- Shortkey to enable it: =M-x + air-org-preview + RET=. It will open the live preview in default browser.
 
 *** Code Formatter
 
-- Use shortkey: /C-M-l/ to format current buffer.
+- Use shortkey: =C-M-l= to format current buffer.
 - This feature rely on =format-all=.
   Not every language is supported, you have to install corresponding backend formatters.
   See [[https://github.com/lassik/emacs-format-all-the-code#supported-languages][this page]] for more information.
@@ -60,8 +66,7 @@ My Emacs configuration files.
 
 ** Enabled plugins
 
-Package archive: http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/,
-http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
+Package archive: http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/, http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/
 
 Some dependencies may not be included here.
 
@@ -99,6 +104,7 @@ Some dependencies may not be included here.
 
 *** UI
 
+- posframe
 - rainbow-delimiters
 - smartparens
 - smooth-scrolling
@@ -113,6 +119,7 @@ Some dependencies may not be included here.
 - flycheck
 - format-all
 - hungry-delete
+- pyim
 - smex
 - sr-speedbar
 - which-key
