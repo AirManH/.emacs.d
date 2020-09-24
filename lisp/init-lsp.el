@@ -6,9 +6,7 @@
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/#use-package
 (use-package lsp-mode
   :hook
-  ((c-mode . lsp-deferred)
-   (c++-mode . lsp-deferred)
-   (lsp-mode . lsp-enable-which-key-integration))
+  (lsp-mode . lsp-enable-which-key-integration)
   :commands
   (lsp lsp-deferred)
   :init
