@@ -23,10 +23,6 @@
   :commands
   lsp-ivy-workspace-symbol)
 
-(use-package which-key
-  :config
-  (which-key-mode))
-
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
