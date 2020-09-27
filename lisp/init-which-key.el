@@ -5,7 +5,9 @@
 
 (use-package which-key
   :config
-  (which-key-mode))
+  (progn
+    (which-key-mode)
+    (which-key-setup-side-window-right-bottom)))
 
 
 (provide 'init-which-key)
