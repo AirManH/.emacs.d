@@ -8,11 +8,15 @@
   ((c-mode . semantic-mode)
    (c++-mode . semantic-mode)))
 
+(defun air-c-gtags-set-srefactor-keymap ()
+  "Define keymap for srefactor."
+  (local-set-key (kbd "M-RET") 'srefactor-refactor-at-point))
+
 (use-package srefactor
-  :commands srefactor-refactor-at-point
-  :config
-  (define-key c-mode-map (kbd "M-RET") 'srefactor-refactor-at-point)
-  (define-key c++-mode-map (kbd "M-RET") 'srefactor-refactor-at-point))
+  :commands srefactor-refactor-at-point)
+
+(add-hook 'c-mode-hook 'air-c-gtags-set-srefactor-keymap)
+(add-hook 'c++-mode-hook 'air-c-gtags-set-srefactor-keymap)
 
 (use-package ggtags
   :hook
