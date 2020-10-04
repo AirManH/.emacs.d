@@ -17,8 +17,21 @@
         evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
   )
 
+
 ;; https://github.com/emacs-evil/evil-magit
 (use-package evil-magit)
+
+
+;; https://github.com/Somelauw/evil-org-mode#installation-by-use-package
+(use-package evil-org
+  :after org
+  :config
+  (add-hook 'org-mode-hook 'evil-org-mode)
+  (add-hook 'evil-org-mode-hook
+            (lambda ()
+              (evil-org-set-key-theme)))
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
 
 
 (provide 'init-evil)
