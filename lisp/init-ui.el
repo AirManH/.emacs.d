@@ -76,9 +76,8 @@
 
 ;; show white space
 (use-package whitespace
-  :defer t
-  :init
-  (add-hook 'prog-mode-hook (lambda () (whitespace-mode 1)))
+  :hook
+  ((prog-mode org-mode) . whitespace-mode)
   :config
   (progn
     ;; not visulize newline mark
