@@ -17,6 +17,9 @@
         evil-operator-state-tag (propertize " <O> " 'face '((:background "sandy brown"    :foreground "black"))))
   )
 
+;; https://github.com/emacs-evil/evil-magit
+(use-package evil-magit)
+
 
 (provide 'init-evil)
 ;;; init-evil.el ends here
