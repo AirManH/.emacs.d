@@ -7,6 +7,7 @@
 (require 'init-ext)
 
 
+(require 'init-ahk)
 (require 'init-c)
 (require 'init-company)
 (require 'init-counsel)
