@@ -24,6 +24,8 @@
     (setq c-basic-offset 4)
     ;; stop re-indenting after typing specific characters (';', '}')
     (setq-default c-electric-flag nil)
+    ;; use multiple windows when debugging
+    (setq gdb-many-windows t)
     ))
 
 
