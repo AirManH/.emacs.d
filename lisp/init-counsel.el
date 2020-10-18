@@ -7,10 +7,7 @@
 (use-package counsel
   ;; <<< CONFIG
   :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-count-format "(%d/%d) ")
-
+  (counsel-mode 1)
 
   ;; {{{ sort files by modified time
   ;; https://github.com/abo-abo/swiper/wiki/Sort-files-by-mtime
@@ -53,7 +50,6 @@
                '(read-file-name-internal . eh-ivy-sort-file-function))
   ;; }}} sort files by modified time
 
-  ;; >>> CONFIG
 
   :bind (
          ;; Ivy-based interface to standard commands
@@ -67,9 +63,6 @@
          ("<f2> i" . counsel-info-lookup-symbol)
          ("<f2> u" . counsel-unicode-char)
          ("<f2> j" . counsel-set-variable)
-         ("C-x b" . ivy-switch-buffer)
-         ("C-c v" . ivy-push-view)
-         ("C-c V" . ivy-pop-view)
          ;; Ivy-based interface to shell and system tools
          ("C-c c" . counsel-compile)
          ("C-c g" . counsel-git)
@@ -83,7 +76,6 @@
          ("C-S-o" . counsel-rhythmbox)
          ("C-c w" . counsel-wmctrl)
          ;; Ivy-resume and other commands
-         ("C-c C-r" . ivy-resume)
          ("C-c b" . counsel-bookmark)
          ("C-c d" . counsel-descbinds)
          ("C-c g" . counsel-git)
@@ -91,4 +83,20 @@
          ("C-c t" . counsel-load-theme)
          ("C-c F" . counsel-org-file)
          )
+  )
+
+
+(use-package ivy
+  :init
+  (progn
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-count-format "(%d/%d) "))
+  :config
+  (progn
+    (ivy-mode 1))
+  :bind
+  (("C-x b" . ivy-switch-buffer)
+   ("C-c v" . ivy-push-view)
+   ("C-c V" . ivy-pop-view)
+   ("C-c C-r" . ivy-resume))
   )
