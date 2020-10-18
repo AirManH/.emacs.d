@@ -1,25 +1,28 @@
-;; === PROVIDE ===
+;;; init-packages.el --- package manager -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
+
+
 (provide 'init-packages)
 
-;; === DEFAULT PACKAGES ===
-
+;; Melpa
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
   (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+                           ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
 
 ;; set default packages, they will be installed automatically
 (defvar my/packages '(
-		      use-package
-		      ) "Default packages")
+                      use-package
+                      ) "Default packages")
 
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
   (cl-loop for pkg in my/packages
-	when (not (package-installed-p pkg)) do (cl-return nil)
-	finally (cl-return t)))
+           when (not (package-installed-p pkg)) do (cl-return nil)
+           finally (cl-return t)))
 
 (unless (my/packages-installed-p)
   (message "%s" "Refreshing package database...")
@@ -33,8 +36,6 @@
   (exec-path-from-shell-initialize))
 
 
-;; === PLUGIN CONFIG ===
-
 ;; auto install all package after "use-package"
 ;; see ":ensure"
 (require 'use-package-ensure)
@@ -46,3 +47,6 @@
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
   (auto-package-update-maybe))
+
+(provide 'init-packages)
+;;; init-packages.el ends here
