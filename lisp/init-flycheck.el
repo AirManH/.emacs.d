@@ -4,9 +4,10 @@
 
 
 (use-package flycheck
+  :defer 1
   ;; remeber to install syntax checker programs
   ;; https://www.flycheck.org/en/latest/user/quickstart.html
-  :init
+  :config
   (global-flycheck-mode))
 
 
