@@ -1,6 +1,7 @@
 (provide 'init-counsel)
 
-(use-package smex)
+(use-package smex
+  :defer t)
 
 ;; counsel contains ivy and swiper
 ;; Online Manual: https://oremacs.com/swiper/
