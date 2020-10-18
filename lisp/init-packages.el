@@ -8,7 +8,11 @@
 ;; Melpa
 (when (>= emacs-major-version 24)
   (require 'package)
-  (package-initialize)
+  ;; see https://www.gnu.org/software/emacs/news/NEWS.27.1
+  ;; see https://github.com/jschaf/esup/issues/84
+  (when (or (version< emacs-version "27.0")
+            (featurep 'esup-child))
+    (package-initialize))
   (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
                            ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
 
