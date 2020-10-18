@@ -19,7 +19,8 @@
 
 
 ;; https://github.com/emacs-evil/evil-magit
-(use-package evil-magit)
+(use-package evil-magit
+  :after magit)
 
 
 ;; https://github.com/Somelauw/evil-org-mode#installation-by-use-package
