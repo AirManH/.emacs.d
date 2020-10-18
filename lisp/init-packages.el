@@ -36,12 +36,12 @@
   (exec-path-from-shell-initialize))
 
 
-;; auto install all package after "use-package"
+;; auto install all packages after "use-package"
 ;; see ":ensure"
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
-;; auto update installed package
+;; auto update installed packages
 (use-package auto-package-update
   :config
   (setq auto-package-update-delete-old-versions t)
