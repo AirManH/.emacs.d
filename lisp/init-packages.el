@@ -46,7 +46,8 @@
   :config
   (setq auto-package-update-delete-old-versions t)
   (setq auto-package-update-hide-results t)
-  (auto-package-update-maybe))
+  (auto-package-update-maybe)
+  (setq auto-package-update-interval 4))
 
 (provide 'init-packages)
 ;;; init-packages.el ends here
