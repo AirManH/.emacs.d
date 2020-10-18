@@ -1,3 +1,9 @@
+;; don't GC during startup to save time
+;; https://github.com/redguardtoo/emacs.d/blob/master/init.el
+(setq gc-cons-percentage 0.6)
+(setq gc-cons-threshold most-positive-fixnum)
+
+
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 (require 'init-packages)
@@ -33,6 +39,16 @@
 (require 'init-ui)
 (require 'init-web)
 (require 'init-which-key)
+
+
+;; https://github.com/redguardtoo/emacs.d/blob/master/init.el
+(defun air-cleanup-gc ()
+  "Clean up gc."
+  (setq gc-cons-threshold  67108864) ; 64M
+  (setq gc-cons-percentage 0.1) ; original value
+  (garbage-collect))
+
+(run-with-idle-timer 4 nil #'air-cleanup-gc)
 
 
 (custom-set-variables
