@@ -10,6 +10,15 @@
   (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0)))
 
 
+;; @see https://github.com/jwiegley/use-package/issues/379
+;; @see https://github.com/jwiegley/use-package#package-installation
+;; @see https://orgmode.org/manual/CDLaTeX-mode.html
+(use-package cdlatex
+  :ensure auctex
+  :hook
+  (org-mode . org-cdlatex-mode))
+
+
 (defun air-org-imp-filter (buffer)
   "A filter transfer current BUFFER to html."
   (princ
