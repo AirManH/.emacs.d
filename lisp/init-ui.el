@@ -118,5 +118,13 @@
                              indentation))))
 
 
+;; awesome-tab
+(use-package awesome-tab
+  :load-path "ext-lisp/awesome-tab"
+  :config
+  (progn
+    (awesome-tab-mode t)))
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
