@@ -8,10 +8,6 @@
 
 (require 'init-packages)
 
-;; external elisp
-(add-to-list 'load-path "~/.emacs.d/ext-lisp/")
-(require 'init-ext)
-
 
 (require 'init-ahk)
 (require 'init-c)
