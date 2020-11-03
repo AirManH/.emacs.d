@@ -62,3 +62,6 @@ flycheck_*.el
 /srecode-map.el
 /.lsp-session-*
 /pyim
+/.dap-breakpoints
+/ede-projects.el
+/url
