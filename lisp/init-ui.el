@@ -147,5 +147,10 @@
   )
 
 
+(use-package doom-modeline
+  :defer 1
+  :init (doom-modeline-mode 1))
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
