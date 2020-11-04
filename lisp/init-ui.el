@@ -135,5 +135,9 @@
   :defer 1)
 
 
+;; hide specific string in mode-line
+(use-package delight)
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
