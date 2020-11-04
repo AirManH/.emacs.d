@@ -6,6 +6,7 @@
 ;; counsel contains ivy and swiper
 ;; Online Manual: https://oremacs.com/swiper/
 (use-package counsel
+  :delight
   ;; <<< CONFIG
   :config
   (counsel-mode 1)
@@ -88,6 +89,7 @@
 
 
 (use-package ivy
+  :delight
   :init
   (progn
     (setq ivy-use-virtual-buffers t)
