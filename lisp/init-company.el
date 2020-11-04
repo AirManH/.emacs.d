@@ -9,7 +9,13 @@
   (progn
     (global-company-mode 1)
     (setq company-idle-delay 0.0
-          company-minimum-prefix-length 1)))
+          company-minimum-prefix-length 1)
+    (use-package company-posframe
+      :config
+      (progn
+        (company-posframe-mode 1)))
+    )
+  )
 
 
 (provide 'init-company)
