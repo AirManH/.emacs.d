@@ -2,6 +2,7 @@
 
 
 (use-package smartparens
+  :delight
   :hook (prog-mode . smartparens-mode)
   :config
   (sp-local-pair '(emacs-lisp-mode lisp-interaction-mode) "'" nil :actions nil))
