@@ -139,5 +139,13 @@
 (use-package delight)
 
 
+;; highlight the thing under point
+(use-package highlight-thing
+  :defer 1
+  :hook
+  (prog-mode . highlight-thing-mode)
+  )
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
