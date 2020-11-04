@@ -130,5 +130,10 @@
   )
 
 
+;; remember to run =M-x all-the-icons-install-fonts= at least once
+(use-package all-the-icons
+  :defer 1)
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
