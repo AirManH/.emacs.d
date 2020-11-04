@@ -123,7 +123,11 @@
   :load-path "ext-lisp/awesome-tab"
   :config
   (progn
-    (awesome-tab-mode t)))
+    (awesome-tab-mode t)
+    (setq awesome-tab-height 110)
+    (setq awesome-tab-active-bar-height 25)
+    )
+  )
 
 
 (provide 'init-ui)
