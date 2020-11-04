@@ -1,4 +1,6 @@
-(provide 'init-editing-utils)
+;;; init-editing-utils.el --- edit -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 
 (use-package smartparens
@@ -12,3 +14,7 @@
 ;; the selected characters will be replaced
 ;; by new charcater.
 (delete-selection-mode 1)
+
+
+(provide 'init-editing-utils)
+;;; init-editing-utils ends here
