@@ -7,7 +7,13 @@
   :mode ("\\.org\\'" . org-mode)
   :config
   (setq org-src-fontify-natively t)
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0)))
+  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '(
+     (C . t)
+     ))
+  )
 
 
 ;; @see https://github.com/jwiegley/use-package/issues/379
