@@ -28,7 +28,7 @@
     ;; use posframe to get better popup
     (use-package posframe
       :config
-      (setq pyim-page-tooltip 'popup)))
+      (setq pyim-page-tooltip 'posframe)))
   )
 
 
