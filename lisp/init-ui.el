@@ -152,5 +152,16 @@
   :init (doom-modeline-mode 1))
 
 
+(use-package dashboard
+  :ensure t
+  :config
+  (progn
+    (dashboard-setup-startup-hook)
+    (setq dashboard-set-heading-icons t)
+    (setq dashboard-set-file-icons t)
+    (setq dashboard-center-content t))
+  )
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
