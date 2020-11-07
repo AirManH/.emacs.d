@@ -35,6 +35,7 @@
 (require 'init-ui)
 (require 'init-web)
 (require 'init-which-key)
+(require 'init-yaml)
 
 
 ;; https://github.com/redguardtoo/emacs.d/blob/master/init.el
@@ -55,7 +56,7 @@
  '(custom-safe-themes
    '("f3ab34b145c3b2a0f3a570ddff8fabb92dafc7679ac19444c31058ac305275e1" default))
  '(package-selected-packages
-   '(doom-modeline highlight-thing delight company-posframe texmathp posframe pyim cmake-mode cnfonts srefactor company-c-headers sr-speedbar magit flycheck smex simple-httpd company-anaconda anaconda-mode spacemacs-theme vmd-mode counsel rainbow-delimiters use-package format-all lua-mode hungry-delete company smartparens monokai-theme))
+   '(yaml-mode doom-modeline highlight-thing delight company-posframe texmathp posframe pyim cmake-mode cnfonts srefactor company-c-headers sr-speedbar magit flycheck smex simple-httpd company-anaconda anaconda-mode spacemacs-theme vmd-mode counsel rainbow-delimiters use-package format-all lua-mode hungry-delete company smartparens monokai-theme))
  '(safe-local-variable-values
    '((air-pyim-fix-punctuation-width . t)
      (pyim-punctuation-translate-p quote
