@@ -154,7 +154,10 @@
 
 (use-package doom-modeline
   :defer 1
-  :init (doom-modeline-mode 1))
+  :init (doom-modeline-mode 1)
+  :config
+  (progn
+    (setq doom-modeline-icon nil)))
 
 
 (use-package dashboard
