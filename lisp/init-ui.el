@@ -163,5 +163,13 @@
   )
 
 
+(use-package highlight-indent-guides
+  :defer 2
+  :hook (prog-mode . highlight-indent-guides-mode)
+  :config
+  (progn
+    (setq highlight-indent-guides-method 'character)))
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
