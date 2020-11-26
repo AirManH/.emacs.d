@@ -128,7 +128,7 @@
                              ;; space-mark
                              ;; spaces
                              trailing
-                             indentation))))
+                             ))))
 
 
 ;; awesome-tab
