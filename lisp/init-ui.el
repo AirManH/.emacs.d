@@ -120,6 +120,7 @@
                              ;; space-mark
                              ;; spaces
                              trailing
+                             lines-tail
                              ))))
 
 
