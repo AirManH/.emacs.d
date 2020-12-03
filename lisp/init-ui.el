@@ -3,6 +3,9 @@
 ;;; Code:
 
 
+(defvar air-ui-load-delay 2
+  "Time of loading delay for ui.")
+
 ;; hide the init screen
 (setq inhibit-splash-screen 1)
 
@@ -13,9 +16,11 @@
 (setq-default cursor-type 'bar)
 
 (use-package highlight-parentheses
+  :defer air-ui-load-delay
   :hook (prog-mode . highlight-parentheses-mode))
 
 (use-package rainbow-delimiters
+  :defer air-ui-load-delay
   :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package smooth-scrolling
@@ -106,6 +111,7 @@
 
 ;; show white space
 (use-package whitespace
+  :defer air-ui-load-delay
   :hook
   ((prog-mode org-mode) . whitespace-mode)
   :config
@@ -138,8 +144,7 @@
 
 ;; remember to run =M-x all-the-icons-install-fonts= at least once
 (when (display-graphic-p)
-  (use-package all-the-icons
-    :defer 1))
+  (use-package all-the-icons))
 
 
 ;; hide specific string in mode-line
@@ -148,14 +153,13 @@
 
 ;; highlight the thing under point
 (use-package highlight-thing
-  :defer 1
+  :defer air-ui-load-delay
   :hook
   (prog-mode . highlight-thing-mode)
   )
 
 
 (use-package doom-modeline
-  :defer 1
   :init (doom-modeline-mode 1)
   :config
   (progn
@@ -181,7 +185,7 @@
 
 
 (use-package highlight-indent-guides
-  :defer 2
+  :defer air-ui-load-defer
   :hook (prog-mode . highlight-indent-guides-mode)
   :config
   (progn
