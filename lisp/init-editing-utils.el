@@ -16,5 +16,12 @@
 (delete-selection-mode 1)
 
 
+;; evil-undo-system requires it
+(use-package undo-tree
+  :config
+  (progn
+    (global-undo-tree-mode)))
+
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils ends here

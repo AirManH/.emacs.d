@@ -4,8 +4,12 @@
 
 
 (use-package evil
+  :init
+  (progn
+    (setq evil-undo-system 'undo-tree))
   :config
-  (evil-mode 1)
+  (progn
+    (evil-mode 1))
   )
 
 
