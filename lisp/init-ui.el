@@ -46,6 +46,47 @@
   ;; Corrects (and improves) org-mode's native fontification.
   (doom-themes-org-config))
 
+
+(defvar air-ui-light-theme 'doom-acario-light
+  "Light theme.")
+(defvar air-ui-dark-theme 'doom-one
+  "Dark theme.")
+
+;; auto change theme by time
+;; https://emacs-china.org/t/emacs-theme/7781/12
+(defun air-ui-auto-change-theme-by-time ()
+  "Auto change theme by time."
+  (let ((current-hour
+         (string-to-number (substring (current-time-string) 11 13)))
+        (current-theme nil)
+        (last-theme nil))
+
+    (if (member current-hour (number-sequence 7 21))
+        (progn
+          (setq current-theme air-ui-light-theme)
+          (setq last-theme air-ui-dark-theme)
+          )
+      (setq current-theme air-ui-dark-theme)
+      (setq last-theme air-ui-light-theme)
+      )
+
+    (mapc 'disable-theme custom-enabled-themes)
+    (load-theme current-theme t)
+    )
+  )
+
+(air-ui-auto-change-theme-by-time)
+(let* ((current-minutes
+        (string-to-number (substring (current-time-string) 14 16)))
+       (current-seconds
+        (string-to-number (substring (current-time-string) 17 20)))
+       (remain-seconds
+        ;; remaining seconds = 3600 - 60 * min - sec
+        (- 3600 (* 60 current-minutes) current-seconds))
+       )
+  (run-with-timer remain-seconds 3600 'air-ui-auto-change-theme-by-time))
+
+
 ;; === GUI ===
 
 ;; for better detecting of GUI,
