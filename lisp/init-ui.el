@@ -159,7 +159,14 @@
   :init (doom-modeline-mode 1)
   :config
   (progn
-    (setq doom-modeline-icon nil)))
+    (setq doom-modeline-icon nil)
+    (when (display-graphic-p)
+      (setq doom-modeline-height 1)
+      ;; change font face on modeline
+      (set-face-attribute 'mode-line nil :family "Source Code Pro" :height 150)
+      (set-face-attribute 'mode-line-inactive nil :family "Source Code Pro" :height 150))
+    )
+  )
 
 
 (use-package dashboard
