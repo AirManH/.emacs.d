@@ -137,8 +137,9 @@
 
 
 ;; remember to run =M-x all-the-icons-install-fonts= at least once
-(use-package all-the-icons
-  :defer 1)
+(when (display-graphic-p)
+  (use-package all-the-icons
+    :defer 1))
 
 
 ;; hide specific string in mode-line
@@ -166,9 +167,9 @@
   :config
   (progn
     (dashboard-setup-startup-hook)
-    (setq dashboard-set-heading-icons t)
-    (setq dashboard-set-file-icons t)
-    (setq dashboard-center-content t))
+    (setq dashboard-set-heading-icons (display-graphic-p))
+    (setq dashboard-set-file-icons (display-graphic-p))
+    (setq dashboard-center-content (display-graphic-p)))
   )
 
 
