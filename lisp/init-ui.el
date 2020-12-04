@@ -52,25 +52,20 @@
   "Dark theme.")
 
 ;; auto change theme by time
-;; https://emacs-china.org/t/emacs-theme/7781/12
+;; https://emacs-china.org/t/emacs-theme/7781/
 (defun air-ui-auto-change-theme-by-time ()
   "Auto change theme by time."
   (let ((current-hour
          (string-to-number (substring (current-time-string) 11 13)))
-        (current-theme nil)
-        (last-theme nil))
+        (target-theme nil))
 
-    (if (member current-hour (number-sequence 7 21))
-        (progn
-          (setq current-theme air-ui-light-theme)
-          (setq last-theme air-ui-dark-theme)
-          )
-      (setq current-theme air-ui-dark-theme)
-      (setq last-theme air-ui-light-theme)
-      )
+    (if (and (<= 7 current-hour) (<= current-hour 20))
+        (setq target-theme air-ui-light-theme)
+      ;; else
+      (setq target-theme air-ui-dark-theme))
 
     (mapc 'disable-theme custom-enabled-themes)
-    (load-theme current-theme t)
+    (load-theme target-theme t)
     )
   )
 
