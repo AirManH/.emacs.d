@@ -179,6 +179,8 @@
     (awesome-tab-mode t)
     (setq awesome-tab-height 110)
     (setq awesome-tab-active-bar-height 25)
+    ;; only display icons on GUI
+    (setq awesome-tab-display-icon (display-graphic-p))
     )
   )
 
