@@ -31,6 +31,7 @@
 (require 'init-other)
 (require 'init-pyim)
 (require 'init-python)
+(require 'init-reader)
 (require 'init-speedbar)
 (require 'init-ui)
 (require 'init-web)
