@@ -6,13 +6,17 @@
 (use-package org
   :mode ("\\.org\\'" . org-mode)
   :config
-  (setq org-src-fontify-natively t)
-  (setq org-format-latex-options (plist-put org-format-latex-options :scale 2.0))
-  (org-babel-do-load-languages
-   'org-babel-load-languages
-   '(
-     (C . t)
-     ))
+  (progn
+    (setq org-src-fontify-natively t
+          org-format-latex-options (plist-put
+                                    org-format-latex-options :scale 2.0)
+          org-latex-pdf-process (list
+                                 "latexmk -xelatex %f"))
+    (org-babel-do-load-languages
+     'org-babel-load-languages '(
+                                 (C . t)
+                                 ))
+    )
   )
 
 
@@ -26,6 +30,22 @@
 (use-package cdlatex
   :hook
   (org-mode . org-cdlatex-mode))
+
+
+(use-package org-ref
+  :after org
+  :init
+  (progn
+    (setq org-ref-completion-library 'org-ref-ivy-cite))
+  :config
+  (progn
+    (require 'org-ref-isbn)
+    (require 'org-id)
+    (require 'org-ref-wos)
+    (require 'org-ref-scopus)
+    (require 'org-ref-pubmed)
+    )
+  )
 
 
 (defun air-org-imp-filter (buffer)
