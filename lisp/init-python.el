@@ -6,7 +6,7 @@
 	 (python-mode . anaconda-eldoc-mode)))
 
 (use-package company-anaconda
-  :defer t
+  :after (anaconda-mode company)
   :init
   (add-hook 'python-mode-hook
 	    (lambda ()
