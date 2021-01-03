@@ -7,14 +7,14 @@
   :hook ((python-mode . anaconda-mode)
          (python-mode . anaconda-eldoc-mode)))
 
-(use-package company-anaconda
-  :after (anaconda-mode company)
-  :config
-  (add-hook 'python-mode-hook (lambda ()
-                                (set (make-local-variable 'company-backends)
-                                     '((company-anaconda company-dabbrev-code)
-                                       company-dabbrev)))))
+(defun air-python-set-company-backends-anaconda ()
+  "Set `company-backends' with `company-anaconda'."
+  (set (make-local-variable 'company-backends)
+       '((company-anaconda company-dabbrev-code)
+         company-dabbrev)))
 
+(use-package company-anaconda
+  :hook (python-mode . air-python-set-company-backends-anaconda))
 
 (provide 'init-python)
 ;;; init-python.el ends here
