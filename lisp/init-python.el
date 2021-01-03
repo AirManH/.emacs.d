@@ -1,4 +1,6 @@
-(provide 'init-python)
+;;; init-python.el --- Python mode -*- lexical-binding: t -*-
+;;; Commentary:
+;;; Code:
 
 
 (use-package anaconda-mode
@@ -12,3 +14,7 @@
                                 (set (make-local-variable 'company-backends)
                                      '((company-anaconda company-dabbrev-code)
                                        company-dabbrev)))))
+
+
+(provide 'init-python)
+;;; init-python.el ends here
