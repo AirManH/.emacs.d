@@ -33,7 +33,9 @@
 
 
 (use-package org-ref
-  :after org
+  :commands
+  (crossref-add-bibtex-entry
+   org-ref-insert-link)
   :init
   (progn
     (setq org-ref-completion-library 'org-ref-ivy-cite))
