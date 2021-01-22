@@ -135,8 +135,21 @@
                              ;; space-mark
                              ;; spaces
                              trailing
-                             lines-tail
+                             ;; lines-tail
                              ))))
+
+
+;; Fill column
+;; see also https://github.com/hlissner/doom-emacs/tree/729e8d8f393d2610cd4007c8dde8fd2521742bc9/modules/ui/fill-column
+;; see also https://www.emacswiki.org/emacs/FillColumnIndicator
+(if (fboundp 'display-fill-column-indicator-mode)
+    (progn
+      (add-hook 'text-mode-hook 'display-fill-column-indicator-mode)
+      (add-hook 'prog-mode-hook 'display-fill-column-indicator-mode))
+  ;; else
+  (progn
+    (use-package hl-fill-column-mode
+      :hook ((prog-mode text-mode) . hl-fill-column-mode))))
 
 
 ;; awesome-tab
