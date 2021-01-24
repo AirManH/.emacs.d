@@ -13,6 +13,7 @@
 (require 'init-c)
 (require 'init-company)
 (require 'init-counsel)
+(require 'init-docker)
 (require 'init-editing-utils)
 (require 'init-elisp)
 (require 'init-esup)
