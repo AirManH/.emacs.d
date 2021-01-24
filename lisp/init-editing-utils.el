@@ -23,5 +23,10 @@
     (global-undo-tree-mode)))
 
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils ends here
