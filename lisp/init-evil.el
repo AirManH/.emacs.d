@@ -13,9 +13,12 @@
   )
 
 
-;; https://github.com/emacs-evil/evil-magit
-(use-package evil-magit
-  :after magit)
+(use-package evil-collection
+  :after magit
+  :config
+  (progn
+    (evil-collection-init)
+    ))
 
 
 ;; https://github.com/Somelauw/evil-org-mode#installation-by-use-package
