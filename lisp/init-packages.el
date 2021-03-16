@@ -13,8 +13,9 @@
   (when (or (version< emacs-version "27.0")
             (featurep 'esup-child))
     (package-initialize))
-  (setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                           ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+  (setq package-archives '(("gnu"   . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+                           ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")))
+  )
 
 ;; set default packages, they will be installed automatically
 (defvar my/packages '(
