@@ -6,7 +6,12 @@
 (use-package evil
   :init
   (progn
-    (setq evil-undo-system 'undo-tree))
+    (setq evil-undo-system 'undo-tree)
+    ;; `evil-collection' assumes `evil-want-keybinding' is set to
+    ;; `nil' before loading `evil' and `evil-collection'
+    ;; @see https://github.com/emacs-evil/evil-collection#installation
+    (setq evil-want-keybinding nil)
+    )
   :config
   (progn
     (evil-mode 1))
