@@ -59,7 +59,7 @@
          (string-to-number (substring (current-time-string) 11 13)))
         (target-theme nil))
 
-    (if (and (<= 7 current-hour) (<= current-hour 20))
+    (if (and (<= 7 current-hour) (<= current-hour 18))
         (setq target-theme air-ui-light-theme)
       ;; else
       (setq target-theme air-ui-dark-theme))
