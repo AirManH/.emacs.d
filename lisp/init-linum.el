@@ -19,7 +19,9 @@
     ivy-occur-grep-mode;betterperformance
     ivy-occur-mode;betterperformance
     man-mode
-    speedbar-mode)
+    speedbar-mode
+    pdf-view-mode
+    )
   "List of modes disabled when global linum mode is on."
   :type '(repeat (sexp :tag "Major mode"))
   :tag " Major modes where linum is disabled: "
