@@ -3,6 +3,12 @@
 ;;; Code:
 
 
+(defun air-disable-evil-auto-indent ()
+  "Set `evil-auto-indent' to nil.
+See also https://evil.readthedocs.io/en/latest/settings.html#indentation]"
+  (setq evil-auto-indent nil))
+
+
 (use-package evil
   :init
   (progn
@@ -11,6 +17,8 @@
     ;; `nil' before loading `evil' and `evil-collection'
     ;; @see https://github.com/emacs-evil/evil-collection#installation
     (setq evil-want-keybinding nil)
+    ;; Disable auto indent in org-mode
+    (add-hook 'org-mode-hook #'air-disable-evil-auto-indent)
     )
   :config
   (progn
