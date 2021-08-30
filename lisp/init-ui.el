@@ -224,6 +224,8 @@
   (progn
     (setq highlight-indent-guides-method 'character)))
 
+(use-package origami
+  :hook (prog-mode . origami-mode))
 
 (provide 'init-ui)
 ;;; init-ui.el ends here
