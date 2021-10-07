@@ -5,10 +5,13 @@
 
 (defvar air-python-scheme "none"
   "This variable decides which scheme to use in python project.
-Candidate: [none, conda, lsp]")
+Candidate: [none, conda, elpy, lsp]")
 
 (when (string-equal "conda" air-python-scheme)
   (require 'init-python-conda))
+
+(when (string-equal "elpy" air-python-scheme)
+  (require 'init-python-elpy))
 
 (when (string-equal "lsp" air-python-scheme)
   (require 'init-python-lsp))
