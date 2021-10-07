@@ -1,4 +1,4 @@
-;;; init-python-conda.el --- lsp based C/C++ support -*- lexical-binding: t -*-
+;;; init-python-conda.el --- anaconda-mode based Python support -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Code:
 
