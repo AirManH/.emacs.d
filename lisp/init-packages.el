@@ -5,6 +5,46 @@
 
 (provide 'init-packages)
 
+
+;; {{{ Select a mirror
+(defvar air-mirror-scheme "default"
+  "Mirror scheme of package archives.
+Candidate: [default, emacs-china, sjtug, tencent, tuna, ustc]")
+
+(defvar air-mirror nil
+  "Mirror of package archives.")
+
+(when (string-equal "default" air-mirror-scheme)
+  (setq air-mirror
+	'(("gnu"   . "https://elpa.gnu.org/packages/")
+          ("melpa" . "https://melpa.org/packages/"))))
+
+(when (string-equal "emacs-china" air-mirror-scheme)
+  (setq air-mirror
+	'(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+          ("melpa" . "https://elpa.emacs-china.org/melpa/"))))
+
+(when (string-equal "sjtug" air-mirror-scheme)
+  (setq air-mirror
+	'(("gnu"   . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
+          ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/"))))
+
+(when (string-equal "tencent" air-mirror-scheme)
+  (setq air-mirror
+	'(("gnu"   . "http://mirrors.cloud.tencent.com/elpa/gnu/")
+          ("melpa" . "http://mirrors.cloud.tencent.com/elpa/melpa/"))))
+
+(when (string-equal "tuna" air-mirror-scheme)
+  (setq air-mirror
+	'(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+          ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/"))))
+
+(when (string-equal "ustc" air-mirror-scheme)
+  (setq air-mirror
+	'(("gnu"   . "http://mirrors.ustc.edu.cn/elpa/gnu/")
+          ("melpa" . "http://mirrors.ustc.edu.cn/elpa/melpa/"))))
+;; }}}
+
 ;; Melpa
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -13,8 +53,7 @@
   (when (or (version< emacs-version "27.0")
             (featurep 'esup-child))
     (package-initialize))
-  (setq package-archives '(("gnu"   . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/gnu/")
-                           ("melpa" . "https://mirrors.sjtug.sjtu.edu.cn/emacs-elpa/melpa/")))
+  (setq package-archives air-mirror)
   )
 
 ;; set default packages, they will be installed automatically
