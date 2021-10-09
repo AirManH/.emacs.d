@@ -30,6 +30,7 @@
 (require 'init-markdown)
 (require 'init-org)
 (require 'init-other)
+(require 'init-powershell)
 (require 'init-pyim)
 (require 'init-python)
 (require 'init-reader)
