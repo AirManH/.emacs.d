@@ -58,11 +58,11 @@
   (let ((current-hour
          (string-to-number (substring (current-time-string) 11 13)))
         (target-theme nil)
-	(user-has-manually-changed-the-theme nil))
+        (user-has-manually-changed-the-theme nil))
 
     ;; Check if user has manually changed the theme
     (when (and (not (member air-ui-light-theme custom-enabled-themes))
-	       (not (member air-ui-dark-theme custom-enabled-themes)))
+               (not (member air-ui-dark-theme custom-enabled-themes)))
       (setq user-has-manually-changed-the-theme t))
 
     ;; Find out at current time which theme shoud be used
