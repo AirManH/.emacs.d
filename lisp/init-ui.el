@@ -57,15 +57,23 @@
   "Auto change theme by time."
   (let ((current-hour
          (string-to-number (substring (current-time-string) 11 13)))
-        (target-theme nil))
+        (target-theme nil)
+	(user-has-manually-changed-the-theme nil))
+
+    ;; Check if user has manually changed the theme
+    (when (and (not (member air-ui-light-theme custom-enabled-themes))
+	       (not (member air-ui-dark-theme custom-enabled-themes)))
+      (setq user-has-manually-changed-the-theme t))
 
     (if (and (<= 7 current-hour) (<= current-hour 18))
         (setq target-theme air-ui-light-theme)
       ;; else
       (setq target-theme air-ui-dark-theme))
 
-    (mapc 'disable-theme custom-enabled-themes)
-    (load-theme target-theme t)
+    ;; If user has manually changed the theme, do nothing
+    (when (not user-has-manually-changed-the-theme)
+      (mapc 'disable-theme custom-enabled-themes)
+      (load-theme target-theme t))
     )
   )
 
