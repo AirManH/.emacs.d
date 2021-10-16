@@ -25,14 +25,13 @@
     )
   )
 
-(defun air-python-set-company-backends-anaconda ()
-  "Set `company-backends' with `company-anaconda'."
-  (set (make-local-variable 'company-backends)
-       '((company-anaconda company-dabbrev-code)
-         company-dabbrev)))
 
 (use-package company-anaconda
-  :hook (python-mode . air-python-set-company-backends-anaconda))
+  :after (conda company)
+  :config
+  (progn
+    (add-to-list 'company-backends 'company-anaconda)))
+
 
 (use-package conda
   :after (anaconda-mode)
