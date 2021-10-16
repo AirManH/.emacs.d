@@ -65,6 +65,7 @@
 	       (not (member air-ui-dark-theme custom-enabled-themes)))
       (setq user-has-manually-changed-the-theme t))
 
+    ;; Find out at current time which theme shoud be used
     (if (and (<= 7 current-hour) (<= current-hour 18))
         (setq target-theme air-ui-light-theme)
       ;; else
