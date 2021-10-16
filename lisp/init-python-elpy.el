@@ -8,6 +8,10 @@
   :init
   (progn
     (advice-add 'python-mode :before 'elpy-enable)
+    (air-local-leader-def 'normal python-mode-map
+      "g d" 'elpy-goto-definition
+      "g b" 'xref-pop-marker-stack
+      )
     )
   )
 
