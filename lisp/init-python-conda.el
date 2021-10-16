@@ -5,7 +5,25 @@
 
 (use-package anaconda-mode
   :hook ((python-mode . anaconda-mode)
-         (python-mode . anaconda-eldoc-mode)))
+         (python-mode . anaconda-eldoc-mode))
+  :config
+  (progn
+    ;; keybinds
+    (air-local-leader-def 'normal python-mode-map
+      ;; g means go
+      "g d" 'anaconda-mode-find-definitions
+      "g a" 'anaconda-mode-find-assignments
+      "g r" 'anaconda-mode-find-references
+      ;; s means show
+      "s d" 'anaconda-mode-find-definitions-other-window
+      "s a" 'anaconda-mode-find-assignments-other-window
+      "s r" 'anaconda-mode-find-references-other-window
+
+      "s c" 'anaconda-mode-show-doc
+      "g b" 'xref-pop-marker-stack
+      )
+    )
+  )
 
 (defun air-python-set-company-backends-anaconda ()
   "Set `company-backends' with `company-anaconda'."
