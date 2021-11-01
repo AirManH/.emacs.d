@@ -172,6 +172,9 @@
     (setq awesome-tab-active-bar-height 25)
     ;; only display icons on GUI
     (setq awesome-tab-display-icon (display-graphic-p))
+    ;; keybinds
+    (air-leader-def 'normal
+      "w a" 'awesome-tab-ace-jump)
     )
   )
 
