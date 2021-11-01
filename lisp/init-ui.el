@@ -48,7 +48,7 @@
 
 (defvar air-ui-light-theme 'doom-acario-light
   "Light theme.")
-(defvar air-ui-dark-theme 'doom-one
+(defvar air-ui-dark-theme 'doom-dark+
   "Dark theme.")
 
 ;; auto change theme by time
