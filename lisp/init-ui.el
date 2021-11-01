@@ -102,7 +102,11 @@
       (scroll-bar-mode -1))
   ;; else
   (progn
-    (xterm-mouse-mode 1)))
+    (xterm-mouse-mode 1)
+    (menu-bar-mode -1)
+    )
+  )
+
 
 (when (display-graphic-p)
 
