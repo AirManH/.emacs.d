@@ -33,22 +33,13 @@
 
 
 (use-package org-ref
-  :commands
-  (crossref-add-bibtex-entry
-   org-ref-insert-link)
-  :init
-  (progn
-    (setq org-ref-completion-library 'org-ref-ivy-cite))
+  :after (org)
   :config
   (progn
+    (require 'org-ref-ivy)
     (require 'org-ref-isbn)
-    (require 'org-id)
-    (require 'org-ref-wos)
-    (require 'org-ref-scopus)
-    (require 'org-ref-pubmed)
     )
   )
-
 
 (defun air-org-imp-filter (buffer)
   "A filter transfer current BUFFER to html."
