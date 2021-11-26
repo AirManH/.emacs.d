@@ -244,5 +244,26 @@
 (use-package origami
   :hook (prog-mode . origami-mode))
 
+
+(use-package treemacs
+  :commands (treemacs treemacs-select-window)
+  :init
+  (progn
+    (general-def
+      "M-0" '(treemacs-select-window :wk "file tree"))
+    )
+  )
+
+
+(use-package treemacs-evil
+  :after (treemacs evil)
+  )
+
+
+(use-package treemacs-magit
+  :after (treemacs magit)
+  )
+
+
 (provide 'init-ui)
 ;;; init-ui.el ends here
