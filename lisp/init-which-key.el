@@ -4,7 +4,6 @@
 
 
 (use-package which-key
-  :delight
   :config
   (progn
     (which-key-mode)
