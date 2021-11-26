@@ -28,6 +28,7 @@
 (require 'init-lsp)
 (require 'init-lua)
 (require 'init-markdown)
+(require 'init-move)
 (require 'init-org)
 (require 'init-other)
 (require 'init-powershell)
