@@ -42,7 +42,7 @@
      "r r" 'lsp-rename
      ;; backend
      "b" '(nil :wk "control lsp backend")
-     "b s" '(lsp-workspace-shutdown)
+     "b s" 'lsp-workspace-shutdown
      "b r" 'lsp-workspace-restart
      "b d" 'lsp-describe-session
      )
