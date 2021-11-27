@@ -31,6 +31,7 @@
      "g d" 'lsp-find-definition
      "g r" 'lsp-find-references
      "g i" 'lsp-find-implementation
+     "g b" '(xref-pop-marker-stack :wk "go back")
      ;; peek
      "s" '(nil :wk "peek")
      "s d" 'lsp-ui-peek-find-definitions
