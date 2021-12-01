@@ -18,7 +18,7 @@
     ;; {{{ keybindings
     (general-define-key
      :prefix air-local-leader
-     :states 'motion
+     :states 'normal
      :keymaps 'lsp-mode-map
      "" '(nil :wk "local leader key")
      ;; format
