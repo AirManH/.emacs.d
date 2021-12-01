@@ -23,29 +23,29 @@
      "" '(nil :wk "local leader key")
      ;; format
      "f" '(nil :wk "format")
-     "f b" 'lsp-format-buffer
-     "f r" 'lsp-format-region
-     "f i" 'lsp-organize-imports
+     "f b" '(lsp-format-buffer :wk "buffer")
+     "f r" '(lsp-format-region :wk "region")
+     "f i" '(lsp-organize-imports :wk "imports")
      ;; goto
      "g" '(nil :wk "go to")
-     "g d" 'lsp-find-definition
-     "g r" 'lsp-find-references
-     "g i" 'lsp-find-implementation
+     "g d" '(lsp-find-definition :wk "definition")
+     "g r" '(lsp-find-references :wk "references")
+     "g i" '(lsp-find-implementation :wk "implementation")
      "g b" '(xref-pop-marker-stack :wk "go back")
      ;; peek
      "s" '(nil :wk "peek")
-     "s d" 'lsp-ui-peek-find-definitions
-     "s i" 'lsp-ui-peek-find-implementation
-     "s r" 'lsp-ui-peek-find-references
-     "s c" 'lsp-ui-doc-glance
+     "s d" '(lsp-ui-peek-find-definitions :wk "definition")
+     "s i" '(lsp-ui-peek-find-implementation :wk "implementation")
+     "s r" '(lsp-ui-peek-find-references :wk "references")
+     "s c" '(lsp-ui-doc-glance :wk "doc")
      ;; rename
      "r" '(nil :wk "reformat")
-     "r r" 'lsp-rename
+     "r r" '(lsp-rename :wk "rename")
      ;; backend
      "b" '(nil :wk "control lsp backend")
-     "b s" 'lsp-workspace-shutdown
-     "b r" 'lsp-workspace-restart
-     "b d" 'lsp-describe-session
+     "b s" '(lsp-workspace-shutdown :wk "shutdown")
+     "b r" '(lsp-workspace-restart :wk "restart")
+     "b d" '(lsp-describe-session :wk "describe session")
      )
     ;; }}}
     )
