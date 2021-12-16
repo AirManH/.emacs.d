@@ -28,5 +28,15 @@
   (editorconfig-mode 1))
 
 
+;; https://github.com/redguardtoo/evil-matchit
+(use-package evil-matchit
+  :after (evil)
+  :config
+  (progn
+    (global-evil-matchit-mode 1)
+    )
+  )
+
+
 (provide 'init-editing-utils)
 ;;; init-editing-utils ends here
