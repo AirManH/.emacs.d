@@ -3,7 +3,7 @@
 ;;; Code:
 
 
-(defvar air-python-scheme "none"
+(defvar air-python-scheme "elpy"
   "This variable decides which scheme to use in python project.
 Candidate: [none, conda, elpy, lsp]")
 
