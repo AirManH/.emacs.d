@@ -31,6 +31,9 @@
   :hook
   (org-mode . org-cdlatex-mode))
 
+(use-package ivy-bibtex
+  :after (org)
+  )
 
 (use-package org-ref
   :after (org)
