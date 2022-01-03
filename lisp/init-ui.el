@@ -234,12 +234,6 @@
   )
 
 
-(use-package highlight-indent-guides
-  :defer air-ui-load-defer
-  :hook (prog-mode . highlight-indent-guides-mode)
-  :config
-  (progn
-    (setq highlight-indent-guides-method 'character)))
 
 (use-package origami
   :hook (prog-mode . origami-mode))
