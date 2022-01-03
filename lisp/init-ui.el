@@ -234,9 +234,15 @@
   )
 
 
-
-(use-package origami
-  :hook (prog-mode . origami-mode))
+;; {{{ fold
+(use-package hideshow
+  :hook (
+         (prog-mode . hs-minor-mode)
+         (conf-mode . hs-minor-mode)
+         (text-mode . hs-minor-mode)
+         )
+  )
+;; }}} fold
 
 
 (use-package treemacs
