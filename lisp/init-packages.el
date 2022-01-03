@@ -7,7 +7,7 @@
 
 
 ;; {{{ Select a mirror
-(defvar air-mirror-scheme "default"
+(defvar air-mirror-scheme "tuna"
   "Mirror scheme of package archives.
 Candidate: [default, emacs-china, sjtug, tencent, tuna, ustc]")
 
