@@ -131,26 +131,30 @@
   )
 
 
-
-;; show white space
+;; {{{ Highlight space and tabs
 (use-package whitespace
   :defer air-ui-load-delay
   :hook
   ((prog-mode org-mode) . whitespace-mode)
   :config
   (progn
-    ;; not visulize newline mark
-    ;; maybe better practice
+    ;; *Faces* are used to highlight the background with a color.
+    ;; *Display table* changes the way a character is displayed
     (setq whitespace-style '(face
-                             ;; tabs
+                             ;; TABs are visualized via *faces*.
                              tabs
+                             ;; TABs are visualized via *display table*.
                              tab-mark
-                             ;; space
-                             ;; space-mark
-                             ;; spaces
+                             ;; trailing blanks are visualized via *faces*.
                              trailing
-                             ;; lines-tail
-                             ))))
+                             ))
+    (custom-set-faces
+     ;; show tabs with gray background
+     '(whitespace-tab ((t (:background "gray" :foreground "#585C6C"))))
+     )
+    )
+  )
+;; }}}
 
 
 ;; Fill column
