@@ -11,7 +11,7 @@
           org-format-latex-options (plist-put
                                     org-format-latex-options :scale 2.0)
           org-latex-pdf-process (list
-                                 "latexmk -xelatex %f"))
+                                 "latexmk -xelatex -interaction=nonstopmode %f"))
     (org-babel-do-load-languages
      'org-babel-load-languages '(
                                  (C . t)
