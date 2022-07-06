@@ -21,7 +21,18 @@
 (use-package ggtags
   :hook
   ((c-mode . ggtags-mode)
-   (c++-mode . ggtags-mode)))
+   (c++-mode . ggtags-mode))
+  :init
+  (progn
+    (air-local-leader-def 'normal ggtags-mode-map
+     "" '(nil :wk "local leader key")
+     ;; goto
+     "g" '(nil :wk "go to")
+     "g d" '(ggtags-find-definition :wk "definition")
+     "g r" '(ggtags-find-reference :wk "reference")
+     )
+    )
+  )
 
 (use-package company-c-headers
   :defer t)
