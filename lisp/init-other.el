@@ -25,4 +25,8 @@
 ;; === GUI ===
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control))))
 
+;; see https://emacs.stackexchange.com/q/29286
+(setq tramp-inline-compress-start-size 1000000)
+(setq tramp-copy-size-limit 1000000)
+
 (setq undo-tree-auto-save-history nil)
