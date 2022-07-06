@@ -24,3 +24,5 @@
 
 ;; === GUI ===
 (setq mouse-wheel-scroll-amount '(3 ((shift) . 1) ((control))))
+
+(setq undo-tree-auto-save-history nil)
