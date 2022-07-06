@@ -41,6 +41,7 @@
 (require 'init-powershell)
 (require 'init-python)
 (require 'init-reader)
+(require 'init-tex)
 (require 'init-web)
 (require 'init-yaml)
 

@@ -19,14 +19,6 @@
     )
   )
 
-
-;; @see https://github.com/jwiegley/use-package/issues/379
-;; @see https://github.com/jwiegley/use-package#package-installation
-;; @see https://orgmode.org/manual/CDLaTeX-mode.html
-(use-package tex
-  :ensure auctex
-  :defer t)
-
 (use-package cdlatex
   :hook
   (org-mode . org-cdlatex-mode))
