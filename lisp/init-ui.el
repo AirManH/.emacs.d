@@ -127,7 +127,7 @@
    'default nil
    :font (font-spec :family air-ui-default-font-family
                     :weight 'normal
-                    :size 16.0))
+                    :size 14.0))
   )
 
 
